@@ -9,22 +9,6 @@ const nextConfig = {
 
 /** @type {import('rehype-pretty-code').Options} */
 const options = {
-  /*
-  grid?: boolean;
-  theme?: Theme | Record<string, Theme>;
-  keepBackground?: boolean;
-  bypassInlineCode?: boolean;
-  defaultLang?: string | { block?: string; inline?: string };
-  tokensMap?: Record<string, string>;
-  transformers?: ShikiTransformer[];
-  filterMetaString?(str: string): string;
-  getHighlighter?(options: BundledHighlighterOptions): Promise<Highlighter>;
-  onVisitLine?(element: LineElement): void;
-  onVisitHighlightedLine?(element: LineElement): void;
-  onVisitHighlightedChars?(element: CharsElement, id: string | undefined): void;
-  onVisitTitle?(element: Element): void;
-  onVisitCaption?(element: Element): void;
-  */
   keepBackground: false,
   theme: {
     light: "vitesse-light",

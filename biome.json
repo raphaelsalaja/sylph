@@ -10,6 +10,7 @@
     "ignore": []
   },
   "formatter": {
+    "ignore": [".next"],
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2
@@ -18,6 +19,7 @@
     "enabled": true
   },
   "linter": {
+    "ignore": [".next"],
     "enabled": true,
     "rules": {
       "recommended": true

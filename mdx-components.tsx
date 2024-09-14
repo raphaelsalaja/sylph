@@ -1,5 +1,5 @@
-import { typography } from "@/markdown/components/typography";
 import { rehype } from "@/markdown/components/rehype";
+import { typography } from "@/markdown/components/typography";
 
 import type { MDXComponents } from "mdx/types";
 

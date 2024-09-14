@@ -1,9 +1,9 @@
+@import "@/styles/mdx.css";
+@import "@/styles/radix.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "@/styles/mdx.css";
-@import "@radix-ui/colors/gray.css";
 
 @layer base {
   body {
