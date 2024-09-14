@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@radix-ui/colors/gray.css";
+
+@layer base {
+  :root {
+    --background: var(--gray-1);
+    --foreground: var(--gray-12);
+  }
+
+  body {
+    color: var(--gray-12);
+    background: var(--gray-1);
+  }
+}
+
+@layer components {
+  .text-small {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .text-large {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: pretty;
+  }
+}
