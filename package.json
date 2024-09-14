@@ -9,13 +9,18 @@
     "lint": "pnpm biome check --write ."
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.11",
     "@radix-ui/colors": "^3.0.0",
+    "@types/mdx": "^2.0.13",
     "next": "14.2.9",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.0",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

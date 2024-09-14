@@ -1,0 +1,21 @@
+.article p,
+.article h1,
+.article h2 {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 21px;
+  letter-spacing: -0.09px;
+}
+
+.article h1 {
+  font-weight: 500;
+}
+
+.article > h1 + h1 {
+  padding-top: 4px;
+}
+
+.article > p,
+.article > p + h1 {
+  padding-top: 1rem;
+}
