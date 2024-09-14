@@ -1,4 +1,3 @@
-import tailwindcssTypography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 import tailwindcssRadixColors from "tailwindcss-radix-colors";
 
@@ -14,6 +13,7 @@ const config: Config = {
       colors: {},
     },
   },
-  plugins: [tailwindcssRadixColors, tailwindcssTypography],
+  plugins: [tailwindcssRadixColors],
 };
+
 export default config;

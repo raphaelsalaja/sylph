@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* article */
 .article p,
 .article h1,
 .article h2 {
@@ -12,10 +17,40 @@
 }
 
 .article > h1 + h1 {
-  padding-top: 4px;
+  margin-top: 4px;
 }
 
 .article > p,
 .article > p + h1 {
-  padding-top: 1rem;
+  margin-top: 16px;
+}
+
+/* rehype-pretty-code */
+figure {
+  margin-top: 16px !important;
+}
+
+figure {
+  @apply rounded-lg border-gray-4 border;
+  overflow-x: auto;
+  padding: 16px;
+  font-size: 12px;
+}
+
+figure [data-line] {
+  padding: 2px;
+}
+
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  code[data-theme*=" "],
+  code[data-theme*=" "] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
 }
