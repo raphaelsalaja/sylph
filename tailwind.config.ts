@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssRadixColors from "tailwindcss-radix-colors";
 
 const config: Config = {
   content: [
@@ -8,12 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+      colors: {},
     },
   },
-  plugins: [],
+  plugins: [tailwindcssRadixColors],
 };
 export default config;
