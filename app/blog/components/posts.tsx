@@ -2,7 +2,7 @@ import { Paths } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
 import Link from "next/link";
 
-export function BlogPosts() {
+export function Posts() {
   const allBlogs = getData(Paths.Blog);
 
   return (

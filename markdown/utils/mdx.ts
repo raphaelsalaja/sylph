@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 import type { Metadata, Paths } from "@/markdown/types";
+import matter from "gray-matter";
 
 function readFile(filePath: string): Metadata | null {
   try {

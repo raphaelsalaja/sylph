@@ -1,9 +1,9 @@
-import { BlogPosts } from "@/components/blog-posts";
+import { Posts } from "@/app/blog/components/posts";
 
 export default function Page() {
   return (
     <section>
-      <BlogPosts />
+      <Posts />
     </section>
   );
 }
