@@ -1,11 +1,16 @@
-import { elements } from "@/markdown/components/elements";
 import { typography } from "@/markdown/components/typography";
 
+import { Posts } from "@/app/blog/components/posts";
 import type { MDXComponents } from "mdx/types";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    ...elements,
+    Preview: ({ children, codeblock }) => (
+      <div data-with-codeblock={codeblock} className="preview">
+        {children}
+      </div>
+    ),
+    BlogPosts: () => <Posts />,
     ...typography,
     ...components,
   };

@@ -13,9 +13,8 @@ export type Metadata = {
   summary?: string;
 
   time: {
-    published: string;
-    created?: string;
-    updated?: string;
+    created: string;
+    updated: string;
   };
 
   media?: {

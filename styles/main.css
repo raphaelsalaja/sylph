@@ -1,4 +1,5 @@
 @import url("@/styles/mdx.css");
+@import url("@/styles/typography.css");
 @import url("@radix-ui/colors/gray.css");
 
 @tailwind base;

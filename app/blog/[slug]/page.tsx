@@ -3,6 +3,7 @@ import { getData } from "@/markdown/utils/mdx";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
+import React from "react";
 
 export async function generateStaticParams() {
   const posts = getData(Paths.Blog);
@@ -25,17 +26,10 @@ export default function Blog({ params }: BlogParams) {
   }
 
   return (
-    <article className="article">
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.title}
-      </h1>
-      <div className="mt-2 mb-8 flex items-center justify-between text-sm">
-        <p className="text-neutral-600 text-sm dark:text-neutral-400">
-          {post.time.published}
-        </p>
-      </div>
-
+    <React.Fragment>
+      <h1>{post.title}</h1>
+      <h2>{post.time.created}</h2>
       <MDXRemote source={post.content} />
-    </article>
+    </React.Fragment>
   );
 }
