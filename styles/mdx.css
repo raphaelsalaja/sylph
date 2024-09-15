@@ -1,56 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.article {
+  p,
+  h1,
+  h2 {
+    @apply text-sm font-normal leading-5 tracking-tight;
+  }
 
-/* article */
-.article p,
-.article h1,
-.article h2 {
-  font-size: 14px;
-  font-style: normal;
-  line-height: 21px;
-  letter-spacing: -0.09px;
+  h1 {
+    @apply font-medium;
+  }
+
+  > h1 + h1 {
+    @apply mt-1;
+  }
+
+  > * {
+    @apply mt-4;
+  }
 }
 
-.article h1 {
-  font-weight: 500;
+.preview {
+  @apply border-gray-4 border mt-4 rounded-lg h-64 flex flex-col items-center justify-center;
+
+  &[data-with-codeblock="true"] {
+    @apply rounded-b-none;
+
+    & + figure {
+      @apply mt-0 border-t-0 rounded-t-none;
+    }
+  }
 }
 
-.article > h1 + h1 {
-  margin-top: 4px;
-}
+article {
+  figure {
+    @apply mt-4 border-gray-4 border rounded-xl;
 
-.article > p,
-.article > p + h1 {
-  margin-top: 16px;
-}
+    padding: 16px;
+    overflow-x: auto;
+    font-size: 12px;
 
-/* rehype-pretty-code */
-figure {
-  margin-top: 16px !important;
-}
+    &[data-line] {
+      padding: 2px;
+    }
+  }
 
-figure {
-  @apply rounded-lg border-gray-4 border;
-  overflow-x: auto;
-  padding: 16px;
-  font-size: 12px;
-}
-
-figure [data-line] {
-  padding: 2px;
-}
-
-code[data-theme*=" "],
-code[data-theme*=" "] span {
-  color: var(--shiki-light);
-  background-color: var(--shiki-light-bg);
-}
-
-@media (prefers-color-scheme: dark) {
   code[data-theme*=" "],
   code[data-theme*=" "] span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    code[data-theme*=" "],
+    code[data-theme*=" "] span {
+      color: var(--shiki-dark);
+      background-color: var(--shiki-dark-bg);
+    }
   }
 }

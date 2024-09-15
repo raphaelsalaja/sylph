@@ -1,5 +1,5 @@
-@import "@/styles/mdx.css";
-@import "@/styles/radix.css";
+@import url("@/styles/mdx.css");
+@import url("@radix-ui/colors/gray.css");
 
 @tailwind base;
 @tailwind components;

@@ -18,11 +18,19 @@
   "organizeImports": {
     "enabled": true
   },
+  "css": {
+    "formatter": {
+      "enabled": true
+    }
+  },
   "linter": {
     "ignore": [".next"],
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "nursery": {
+        "useSortedClasses": "info"
+      }
     }
   },
   "javascript": {

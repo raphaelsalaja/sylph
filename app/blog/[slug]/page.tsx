@@ -29,9 +29,9 @@ export default function Blog({ params }: BlogParams) {
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {post.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {post.publishedAt}
+      <div className="mt-2 mb-8 flex items-center justify-between text-sm">
+        <p className="text-neutral-600 text-sm dark:text-neutral-400">
+          {post.time.published}
         </p>
       </div>
 
