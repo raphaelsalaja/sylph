@@ -1,7 +1,7 @@
 import { Paths } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
 import clsx from "clsx";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export function Posts() {
   const posts = getData(Paths.Blog).sort((a, b) => {

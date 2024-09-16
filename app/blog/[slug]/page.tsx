@@ -1,5 +1,6 @@
 import { Paths } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
+import { MDX } from "@/mdx-components";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
@@ -29,7 +30,7 @@ export default function Blog({ params }: BlogParams) {
     <React.Fragment>
       <h1>{post.title}</h1>
       <h2>{post.time.created}</h2>
-      <MDXRemote source={post.content} />
+      <MDX source={post.content} />
     </React.Fragment>
   );
 }
