@@ -14,6 +14,7 @@ const config: Config = {
       colors: {},
     },
   },
+  darkMode: "class",
   plugins: [tailwindcssRadixColors],
 };
 

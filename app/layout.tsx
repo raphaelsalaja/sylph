@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
-import "@/styles/main.css";
 import { ViewTransitions } from "next-view-transitions";
+import * as Theme from "@/components/theme";
+
+import "@/styles/main.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,14 +16,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en">
-        <body>
-          <main className="mx-auto max-w-[692px] overflow-x-hidden px-6 py-12 text-gray-1200 antialiased sm:py-32 md:overflow-x-visible md:py-16">
-            <article className="article">{children}</article>
-          </main>
-        </body>
-      </html>
-    </ViewTransitions>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ViewTransitions>
+          <Theme.Provider>
+            <main className="mx-auto max-w-[692px] overflow-x-hidden px-6 py-12  antialiased sm:py-32 md:overflow-x-visible md:py-16">
+              <article className="article">{children}</article>
+            </main>
+          </Theme.Provider>
+        </ViewTransitions>
+      </body>
+    </html>
   );
 }

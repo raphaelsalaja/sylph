@@ -6,8 +6,7 @@
 
 @layer base {
   body {
-    color: var(--gray-12);
-    background: var(--gray-1);
+    @apply bg-grayp3-app text-grayp3-normal;
 
     p,
     h1,
