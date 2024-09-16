@@ -5,7 +5,7 @@ const container = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.5,
+      staggerChildren: 0.4,
       delayChildren: 0.2,
     },
   },
@@ -14,7 +14,7 @@ const container = {
 const item = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 8,
     filter: "blur(4px)",
   },
   show: {

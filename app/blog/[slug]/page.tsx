@@ -26,10 +26,16 @@ export default function Blog({ params }: BlogParams) {
     notFound();
   }
 
+  const formatter = new Intl.DateTimeFormat("en", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  });
+
   return (
     <React.Fragment>
       <h1>{post.title}</h1>
-      <h2>{post.time.created}</h2>
+      <h2>{formatter.format(new Date(post.time.created))}</h2>
       <MDX source={post.content} />
     </React.Fragment>
   );
