@@ -16,6 +16,21 @@ export default function Page() {
         <Home.Posts />
       </FadeIn.Item>
       <FadeIn.Item>
+        <Home.Posts />
+      </FadeIn.Item>
+      <FadeIn.Item>
+        <Home.Posts />
+      </FadeIn.Item>
+      <FadeIn.Item>
+        <Home.Posts />
+      </FadeIn.Item>
+      <FadeIn.Item>
+        <Home.Posts />
+      </FadeIn.Item>
+      <FadeIn.Item>
+        <Home.Posts />
+      </FadeIn.Item>
+      <FadeIn.Item>
         <Home.Footer />
       </FadeIn.Item>
     </FadeIn.Container>

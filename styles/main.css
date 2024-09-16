@@ -2,6 +2,7 @@
 @import url("@radix-ui/colors/gray-alpha.css");
 @import url("@radix-ui/colors/gray-dark.css");
 @import url("@radix-ui/colors/gray-dark-alpha.css");
+@import url("@radix-ui/colors/black-alpha.css");
 
 @tailwind base;
 @tailwind components;
@@ -11,14 +12,15 @@
   body {
     @apply bg-gray-1 text-gray-12;
 
-    p,
-    h1,
+    font-size: 14px;
+    font-style: normal;
+    line-height: 21px;
+    letter-spacing: -0.09px;
+
     h2,
-    h3 {
-      font-size: 14px;
-      font-style: normal;
-      line-height: 21px;
-      letter-spacing: -0.09px;
+    h3,
+    sub {
+      @apply text-gray-8;
     }
 
     sub {
@@ -43,12 +45,6 @@
 
     h1 {
       font-weight: 500;
-    }
-
-    h2,
-    h3,
-    sub {
-      @apply text-gray-8;
     }
 
     .article {

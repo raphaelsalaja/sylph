@@ -16,8 +16,7 @@ export const mdxOptions = {
           },
           keepBackground: false,
           defaultLang: "tsx",
-          filterMetaString: (string: string) =>
-            string.replace(/filename="[^"]*"/, ""),
+          filterMetaString: (string: string) => string.replace(/filename="[^"]*"/, ""),
         },
       ],
     ] as PluggableList,

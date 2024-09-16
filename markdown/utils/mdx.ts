@@ -32,7 +32,5 @@ function getFiles(dir: string): string[] {
 
 export function getData(directory: Paths): Metadata[] {
   const mdxFiles = getFiles(directory);
-  return mdxFiles
-    .map((file) => readFile(path.join(directory, file)))
-    .filter((metadata): metadata is Metadata => metadata !== null);
+  return mdxFiles.map((file) => readFile(path.join(directory, file))).filter((metadata): metadata is Metadata => metadata !== null);
 }

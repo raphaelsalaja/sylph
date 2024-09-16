@@ -1,5 +1,4 @@
 import Link from "@/components/link";
-import * as Theme from "@/components/theme";
 
 export const Footer = () => {
   return (
@@ -7,7 +6,9 @@ export const Footer = () => {
       <sub>
         Built with <Link href="https://nextjs.org/" text="Next.js" />
       </sub>
-      <sub>Powered by Vercel ▲</sub>
+      <sub>
+        Powered by <Link href="https://vercel.com/" text="Vercel ▲" />
+      </sub>
     </div>
   );
 };

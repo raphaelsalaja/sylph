@@ -9,9 +9,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ city, country });
   } catch (error) {
     console.error(error);
-    return NextResponse.json(
-      { error: "Unable to retrieve geolocation data" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Unable to retrieve geolocation data" }, { status: 500 });
   }
 }

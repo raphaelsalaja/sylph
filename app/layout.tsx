@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { ViewTransitions } from "next-view-transitions";
 import * as Theme from "@/components/theme";
+import { ViewTransitions } from "next-view-transitions";
 
 import "@/styles/main.css";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <ViewTransitions>
           <Theme.Provider>
-            <main className="mx-auto max-w-[692px] overflow-x-hidden px-6 py-12  antialiased sm:py-32 md:overflow-x-visible md:py-16">
+            <main className="mx-auto max-w-[692px] overflow-x-hidden px-6 py-12 antialiased sm:py-32 md:overflow-x-visible md:py-16">
               <article className="article">{children}</article>
             </main>
           </Theme.Provider>

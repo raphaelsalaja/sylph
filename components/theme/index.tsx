@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useTheme, ThemeProvider } from "next-themes";
+import { ThemeProvider, useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Switch = () => {
   const [mounted, setMounted] = useState(false);
@@ -26,12 +26,7 @@ const Switch = () => {
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider
-      enableSystem={true}
-      attribute="class"
-      storageKey="theme"
-      defaultTheme="system"
-    >
+    <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
       {children}
     </ThemeProvider>
   );

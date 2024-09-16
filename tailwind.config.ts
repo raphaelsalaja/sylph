@@ -2,12 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   important: true,
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./mdx-components.tsx",
-  ],
+  content: ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}", "./mdx-components.tsx"],
   theme: {
     extend: {
       colors: {
@@ -36,6 +31,20 @@ const config: Config = {
           a10: "var(--gray-a10)",
           a11: "var(--gray-a11)",
           a12: "var(--gray-a12)",
+        },
+        black: {
+          a1: "var(--black-a1)",
+          a2: "var(--black-a2)",
+          a3: "var(--black-a3)",
+          a4: "var(--black-a4)",
+          a5: "var(--black-a5)",
+          a6: "var(--black-a6)",
+          a7: "var(--black-a7)",
+          a8: "var(--black-a8)",
+          a9: "var(--black-a9)",
+          a10: "var(--black-a10)",
+          a11: "var(--black-a11)",
+          a12: "var(--black-a12)",
         },
       },
     },
