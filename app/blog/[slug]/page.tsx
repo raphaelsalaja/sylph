@@ -2,7 +2,6 @@ import { Paths } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
 
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import React from "react";
 

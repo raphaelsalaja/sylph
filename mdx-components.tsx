@@ -1,7 +1,7 @@
+import { mdxOptions } from "@/markdown/utils/config";
+import type { MDXComponents } from "mdx/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import type { MDXComponents } from "mdx/types";
-import { mdxOptions } from "@/markdown/utils/config";
 
 const components: MDXComponents = {
   Preview: ({ children, codeblock }) => (
