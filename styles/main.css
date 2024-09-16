@@ -1,4 +1,7 @@
 @import url("@radix-ui/colors/gray.css");
+@import url("@radix-ui/colors/gray-alpha.css");
+@import url("@radix-ui/colors/gray-dark.css");
+@import url("@radix-ui/colors/gray-dark-alpha.css");
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +9,7 @@
 
 @layer base {
   body {
-    @apply bg-grayp3-app text-grayp3-normal;
+    @apply bg-gray-1 text-gray-12;
 
     p,
     h1,
@@ -25,7 +28,7 @@
       letter-spacing: 0.01px;
 
       a {
-        @apply decoration-grayp3-4;
+        @apply decoration-gray-a4;
 
         font-weight: 400;
         text-decoration-line: underline;
@@ -45,7 +48,7 @@
     h2,
     h3,
     sub {
-      @apply text-grayp3-8;
+      @apply text-gray-8;
     }
 
     .article {
@@ -58,7 +61,7 @@
       }
 
       h1 + h2 {
-        margin-top: 4px !important;
+        margin-top: 0 !important;
       }
     }
   }

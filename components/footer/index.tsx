@@ -8,9 +8,6 @@ export const Footer = () => {
         Built with <Link href="https://nextjs.org/" text="Next.js" />
       </sub>
       <sub>Powered by Vercel ▲</sub>
-      <sub>
-        <Theme.Switch />
-      </sub>
     </div>
   );
 };

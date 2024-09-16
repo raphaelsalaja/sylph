@@ -26,8 +26,9 @@ export function Posts() {
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div
             className={clsx({
-              " flex w-full justify-between py-2 transition-all": true,
-              "border-b border-b-gray-4": index !== posts.length - 1,
+              "flex w-full justify-between py-2": true,
+              "border-b border-b-gray-4 dark:border-b-gray-4":
+                index !== posts.length - 1,
               "border-t border-t-gray-4": index === 0,
             })}
           >
