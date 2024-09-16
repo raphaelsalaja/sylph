@@ -1,8 +1,17 @@
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+
 import { geolocation } from "@vercel/functions";
 
-export function GET(request: Request) {
-  const geo = geolocation(request);
-  return new Response(`<h1>You are in ${geo}</h1>`, {
-    headers: { "content-type": "text/html" },
-  });
+export async function GET(request: NextRequest) {
+  try {
+    const { city, country } = geolocation(request) || {};
+    return NextResponse.json({ city, country });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { error: "Unable to retrieve geolocation data" },
+      { status: 500 },
+    );
+  }
 }
