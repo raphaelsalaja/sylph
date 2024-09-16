@@ -16,6 +16,7 @@
     "@next/mdx": "^14.2.11",
     "@radix-ui/colors": "^3.0.0",
     "@types/mdx": "^2.0.13",
+    "@vercel/functions": "^1.4.1",
     "clsx": "^2.1.1",
     "create-stylelint": "^0.5.0",
     "gray-matter": "^4.0.3",
