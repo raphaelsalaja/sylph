@@ -3,8 +3,8 @@ import { getData } from "@/markdown/utils/mdx";
 import clsx from "clsx";
 import { Link } from "next-view-transitions";
 
-export function Posts() {
-  const posts = getData(Paths.Blog).sort((a, b) => {
+export function Experiments() {
+  const posts = getData(Paths.Experiments).sort((a, b) => {
     if (new Date(a.time.created) > new Date(b.time.created)) {
       return -1;
     }
@@ -19,7 +19,7 @@ export function Posts() {
 
   return (
     <div className="mt-6 flex flex-col">
-      <h1 className="pb-2">Thoughts {posts.length > 0 && `(${posts.length})`}</h1>
+      <h1 className="pb-2">Experiments {posts.length > 0 && `(${posts.length})`}</h1>
       {posts.map((post, index) => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div

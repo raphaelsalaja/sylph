@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   important: true,
-  content: ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}", "./mdx-components.tsx"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./mdx-components.tsx",
+  ],
   theme: {
     extend: {
       colors: {
@@ -45,6 +50,32 @@ const config: Config = {
           a10: "var(--black-a10)",
           a11: "var(--black-a11)",
           a12: "var(--black-a12)",
+        },
+        lime: {
+          1: "var(--lime-1)",
+          2: "var(--lime-2)",
+          3: "var(--lime-3)",
+          4: "var(--lime-4)",
+          5: "var(--lime-5)",
+          6: "var(--lime-6)",
+          7: "var(--lime-7)",
+          8: "var(--lime-8)",
+          9: "var(--lime-9)",
+          10: "var(--lime-10)",
+          11: "var(--lime-11)",
+          12: "var(--lime-12)",
+          a1: "var(--lime-a1)",
+          a2: "var(--lime-a2)",
+          a3: "var(--lime-a3)",
+          a4: "var(--lime-a4)",
+          a5: "var(--lime-a5)",
+          a6: "var(--lime-a6)",
+          a7: "var(--lime-a7)",
+          a8: "var(--lime-a8)",
+          a9: "var(--lime-a9)",
+          a10: "var(--lime-a10)",
+          a11: "var(--lime-a11)",
+          a12: "var(--lime-a12)",
         },
       },
     },

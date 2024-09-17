@@ -13,22 +13,10 @@ export default function Page() {
         <Home.AboutMe />
       </FadeIn.Item>
       <FadeIn.Item>
-        <Home.Posts />
+        <Home.Experiments />
       </FadeIn.Item>
       <FadeIn.Item>
-        <Home.Posts />
-      </FadeIn.Item>
-      <FadeIn.Item>
-        <Home.Posts />
-      </FadeIn.Item>
-      <FadeIn.Item>
-        <Home.Posts />
-      </FadeIn.Item>
-      <FadeIn.Item>
-        <Home.Posts />
-      </FadeIn.Item>
-      <FadeIn.Item>
-        <Home.Posts />
+        <Home.Thoughts />
       </FadeIn.Item>
       <FadeIn.Item>
         <Home.Footer />

@@ -2,6 +2,10 @@
 @import url("@radix-ui/colors/gray-alpha.css");
 @import url("@radix-ui/colors/gray-dark.css");
 @import url("@radix-ui/colors/gray-dark-alpha.css");
+@import url("@radix-ui/colors/lime.css");
+@import url("@radix-ui/colors/lime-alpha.css");
+@import url("@radix-ui/colors/lime-dark.css");
+@import url("@radix-ui/colors/lime-dark-alpha.css");
 @import url("@radix-ui/colors/black-alpha.css");
 
 @tailwind base;
@@ -28,18 +32,11 @@
       font-style: normal;
       line-height: normal;
       letter-spacing: 0.01px;
+    }
 
-      a {
-        @apply decoration-gray-a4;
-
-        font-weight: 400;
-        text-decoration-line: underline;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 2px;
-      }
-
-      a:hover {
-        opacity: 0.7;
+    a {
+      &:hover {
+        opacity: 0.5;
       }
     }
 
@@ -59,6 +56,37 @@
       h1 + h2 {
         margin-top: 0 !important;
       }
+    }
+  }
+}
+
+@layer components {
+  .bg-hover {
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    height: fit-content;
+    padding: 2px 4px;
+
+    &::before {
+      @apply bg-gray-a2;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      content: "";
+      border-radius: 4px;
+      opacity: 0;
+      transition: all 0.2s ease;
+      transform: scale(0.5);
+    }
+
+    &:hover::before {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }

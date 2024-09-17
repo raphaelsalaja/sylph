@@ -1,6 +1,6 @@
 export enum Paths {
-  Blog = "app/blog/posts",
-  Docs = "app/docs/pages",
+  Thoughts = "app/thoughts/posts",
+  Experiments = "app/experiments/posts",
 }
 
 export type Metadata = {
