@@ -1,6 +1,5 @@
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
-
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -12,7 +11,9 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
-  const post = getData("app/thoughts/posts").find((post) => post.slug === params.slug);
+  const post = getData("app/thoughts/posts").find(
+    (post) => post.slug === params.slug
+  );
 
   if (!post) {
     notFound();

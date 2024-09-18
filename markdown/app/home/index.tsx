@@ -14,7 +14,8 @@ interface PostProps {
 }
 
 const Posts = ({ category }: PostProps) => {
-  const route = `app/${category.toLowerCase()}/posts`;
+  const path = decodeURIComponent(category).toLowerCase();
+  const route = `app/${path}/posts`;
 
   if (!route) {
     console.error(`Invalid category: ${category}`);
@@ -22,7 +23,9 @@ const Posts = ({ category }: PostProps) => {
   }
 
   const posts = getData(route).sort((a, b) => {
-    return new Date(b.time.created).getTime() - new Date(a.time.created).getTime();
+    return (
+      new Date(b.time.created).getTime() - new Date(a.time.created).getTime()
+    );
   });
 
   const formatter = new Intl.DateTimeFormat("en", {
@@ -37,20 +40,29 @@ const Posts = ({ category }: PostProps) => {
         {category} {posts.length > 0 && `(${posts.length})`}
       </h1>
 
-      {posts.map((post, index) => (
-        <Link key={post.slug} href={`${category.toLowerCase()}/${post.slug}`}>
-          <div
-            className={clsx({
-              "flex w-full justify-between py-2": true,
-              "border-b border-b-gray-4 dark:border-b-gray-4": index !== posts.length - 1,
-              "border-t border-t-gray-4": index === 0,
-            })}
+      {posts.map((post, index) => {
+        console.log(post.slug);
+        return (
+          <Link
+            key={post.slug}
+            href={`/${path}/${post.slug.replace(/\s+/g, "-")}`}
           >
-            <p>{post.title}</p>
-            <p className="text-gray-8">{formatter.format(new Date(post.time.created))}</p>
-          </div>
-        </Link>
-      ))}
+            <div
+              className={clsx({
+                "flex w-full justify-between py-2": true,
+                "border-b border-b-gray-4 dark:border-b-gray-4":
+                  index !== posts.length - 1,
+                "border-t border-t-gray-4": index === 0,
+              })}
+            >
+              <p>{post.title}</p>
+              <p className="text-gray-8">
+                {formatter.format(new Date(post.time.created))}
+              </p>
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 };
@@ -100,7 +112,8 @@ const Footer = () => {
     <FadeIn.Item>
       <div className="flex w-full items-center justify-between border-t border-t-gray-4 pt-2">
         <div className="px-[2px] text-gray-8 text-xs tracking-[0.01px]">
-          Built with <Link href="https://nextjs.org/" text="Next.js" underline />
+          Built with{" "}
+          <Link href="https://nextjs.org/" text="Next.js" underline />
         </div>
         <div className="text-gray-8 text-xs tracking-[0.01px]">
           <Theme.Switch />

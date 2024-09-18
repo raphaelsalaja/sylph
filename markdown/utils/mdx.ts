@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { AppRoutes, Metadata } from "@/markdown/types";
+import type { Metadata } from "@/markdown/types";
 import matter from "gray-matter";
 
 function readFile(filePath: string): Metadata | null {
@@ -30,7 +30,9 @@ function getFiles(dir: string): string[] {
   }
 }
 
-export function getData(directory: AppRoutes): Metadata[] {
+export function getData(directory: string): Metadata[] {
   const mdxFiles = getFiles(directory);
-  return mdxFiles.map((file) => readFile(path.join(directory, file))).filter((metadata): metadata is Metadata => metadata !== null);
+  return mdxFiles
+    .map((file) => readFile(path.join(directory, file)))
+    .filter((metadata): metadata is Metadata => metadata !== null);
 }

@@ -2,7 +2,7 @@ export type Metadata = {
   title: string;
   slug: string;
   content: string;
-
+  order?: number;
   tags?: string[];
   author?: string;
   summary?: string;
