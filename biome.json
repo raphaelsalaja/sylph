@@ -31,6 +31,9 @@
       "recommended": true,
       "nursery": {
         "useSortedClasses": "info"
+      },
+      "correctness": {
+        "noUnusedImports": "error"
       }
     }
   },

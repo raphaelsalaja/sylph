@@ -1,4 +1,3 @@
-import { AppRoutes } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
 
@@ -6,20 +5,14 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 export async function generateStaticParams() {
-  const posts = getData(AppRoutes.Experiments);
+  const posts = getData("app/experiments/posts");
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-interface ExperimentsParams {
-  params: {
-    slug: string;
-  };
-}
-
-export default function Experiments({ params }: ExperimentsParams) {
-  const post = getData(AppRoutes.Experiments).find((post) => post.slug === params.slug);
+export default function Page({ params }: { params: { slug: string } }) {
+  const post = getData("app/experiments/posts").find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

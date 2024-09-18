@@ -2,10 +2,10 @@ import type { Metadata } from "next/types";
 
 export const OpenGraphMetadata: Metadata = {
   title: {
-    default: "Kendall Roy",
+    default: "Sylph",
     template: "%s",
   },
-  description: "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
+  description: "...",
   keywords: [
     "Kendall Roy",
     "Waystar Royco",
@@ -19,27 +19,20 @@ export const OpenGraphMetadata: Metadata = {
     "Power Moves",
     "High-Stakes Strategy",
   ],
-  authors: [
-    {
-      name: "Kendall Roy",
-      url: "https://kendallroy.com",
-    },
-  ],
-  creator: "Kendall Roy",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kendallroy.com",
-    title: "Kendall Roy",
-    description: "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
-    siteName: "Kendall Roy",
+    url: "https://sylph.raphaelsalaja.com",
+    title: "Sylph",
+    description: "...",
+    siteName: "Sylph",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kendall Roy",
-    description: "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
-    images: ["https://kendallroy.com/api/og"],
-    creator: "@kendallroy",
+    title: "Sylph",
+    description: "...",
+    images: ["https://sylph.raphaelsalaja.com/api/og:image"],
+    creator: "@raphaelsalaja",
   },
   robots: {
     index: true,

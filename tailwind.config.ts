@@ -2,7 +2,13 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   important: true,
-  content: ["./pages/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}", "./mdx-components.tsx"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./markdown/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./mdx-components.tsx",
+  ],
   theme: {
     extend: {
       colors: {

@@ -1,8 +1,3 @@
-export enum AppRoutes {
-  Thoughts = "app/thoughts/posts",
-  Experiments = "app/experiments/posts",
-}
-
 export type Metadata = {
   title: string;
   slug: string;

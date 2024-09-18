@@ -5,14 +5,14 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 export async function generateStaticParams() {
-  const posts = getData("app/thoughts/posts");
+  const posts = getData("app/guides/posts");
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
-  const post = getData("app/thoughts/posts").find((post) => post.slug === params.slug);
+  const post = getData("app/guides/posts").find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
