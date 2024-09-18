@@ -41,7 +41,6 @@ const Posts = ({ category }: PostProps) => {
       </h1>
 
       {posts.map((post, index) => {
-        console.log(post.slug);
         return (
           <Link
             key={post.slug}

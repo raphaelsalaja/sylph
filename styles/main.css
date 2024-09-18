@@ -144,8 +144,6 @@ html {
 
 body {
   pre {
-    @apply mt-4 border-gray-4 border rounded-xl;
-
     padding: 16px;
     overflow-x: auto;
     font-size: 12px;
@@ -154,16 +152,28 @@ body {
       margin-top: 0 !important;
     }
   }
+}
 
-  .preview {
-    @apply border-gray-4 border mt-4 rounded-lg h-64 flex flex-col items-center justify-center;
+.preview {
+  @apply border-gray-4 border mt-4 rounded-lg h-64 flex flex-col items-center justify-center;
 
-    &[data-with-codeblock="true"] {
-      @apply rounded-b-none;
+  &[data-with-codeblock="true"] {
+    @apply rounded-b-none;
 
-      & + figure {
-        @apply mt-0 border-t-0 rounded-t-none;
-      }
+    & + figure {
+      @apply mt-0 border-t-0 rounded-t-none !important;
     }
+  }
+}
+
+figure {
+  @apply border-gray-4 border mt-4 rounded-lg;
+
+  img {
+    @apply w-full h-auto rounded-t-lg;
+  }
+
+  figcaption {
+    @apply p-4 text-gray-8 text-sm;
   }
 }
