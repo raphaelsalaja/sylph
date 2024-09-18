@@ -19,9 +19,7 @@ interface ExperimentsParams {
 }
 
 export default function Experiments({ params }: ExperimentsParams) {
-  const post = getData(AppRoutes.Experiments).find(
-    (post) => post.slug === params.slug
-  );
+  const post = getData(AppRoutes.Experiments).find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

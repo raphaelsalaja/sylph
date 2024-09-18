@@ -19,9 +19,7 @@ interface BlogParams {
 }
 
 export default function Blog({ params }: BlogParams) {
-  const post = getData(AppRoutes.Thoughts).find(
-    (post) => post.slug === params.slug
-  );
+  const post = getData(AppRoutes.Thoughts).find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
