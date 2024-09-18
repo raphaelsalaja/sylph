@@ -11,8 +11,8 @@ export const mdxOptions = {
         rehypePrettyCode,
         {
           theme: {
-            light: "vitesse-light",
-            dark: "vitesse-dark",
+            dark: "github-dark",
+            light: "github-light",
           },
           keepBackground: false,
           defaultLang: "tsx",

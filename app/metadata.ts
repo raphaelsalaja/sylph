@@ -5,8 +5,7 @@ export const OpenGraphMetadata: Metadata = {
     default: "Kendall Roy",
     template: "%s",
   },
-  description:
-    "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
+  description: "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
   keywords: [
     "Kendall Roy",
     "Waystar Royco",
@@ -32,15 +31,13 @@ export const OpenGraphMetadata: Metadata = {
     locale: "en_US",
     url: "https://kendallroy.com",
     title: "Kendall Roy",
-    description:
-      "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
+    description: "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
     siteName: "Kendall Roy",
   },
   twitter: {
     card: "summary_large_image",
     title: "Kendall Roy",
-    description:
-      "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
+    description: "Visionary leader and former CEO of Waystar Royco, navigating the complexities of corporate media with a relentless drive for success.",
     images: ["https://kendallroy.com/api/og"],
     creator: "@kendallroy",
   },
