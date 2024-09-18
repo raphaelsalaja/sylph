@@ -1,4 +1,4 @@
-export enum Paths {
+export enum AppRoutes {
   Thoughts = "app/thoughts/posts",
   Experiments = "app/experiments/posts",
 }

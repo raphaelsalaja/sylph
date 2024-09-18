@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postbuild": "next-sitemap",
     "lint:style": "npx stylelint \"**/*.css\" --fix",
     "lint:biome": "pnpm biome check --fix --unsafe .",
     "lint": "npm run lint:style && npm run lint:biome"
@@ -29,6 +30,7 @@
     "highlight.js": "^11.10.0",
     "next": "14.2.9",
     "next-mdx-remote": "^5.0.0",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.3.0",
     "next-view-transitions": "^0.3.0",
     "react": "^18",

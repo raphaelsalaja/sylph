@@ -1,4 +1,4 @@
-import { Paths } from "@/markdown/types";
+import { AppRoutes } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
 
@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 export async function generateStaticParams() {
-  const posts = getData(Paths.Blog);
+  const posts = getData(AppRoutes.Thoughts);
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -19,7 +19,9 @@ interface BlogParams {
 }
 
 export default function Blog({ params }: BlogParams) {
-  const post = getData(Paths.Blog).find((post) => post.slug === params.slug);
+  const post = getData(AppRoutes.Thoughts).find(
+    (post) => post.slug === params.slug
+  );
 
   if (!post) {
     notFound();

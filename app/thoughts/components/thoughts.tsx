@@ -1,10 +1,10 @@
-import { Paths } from "@/markdown/types";
+import { AppRoutes } from "@/markdown/types";
 import { getData } from "@/markdown/utils/mdx";
 import clsx from "clsx";
 import { Link } from "next-view-transitions";
 
 export function Thoughts() {
-  const posts = getData(Paths.Thoughts).sort((a, b) => {
+  const posts = getData(AppRoutes.Thoughts).sort((a, b) => {
     if (new Date(a.time.created) > new Date(b.time.created)) {
       return -1;
     }
@@ -19,18 +19,23 @@ export function Thoughts() {
 
   return (
     <div className="mt-6 flex flex-col">
-      <h1 className="pb-2">Thoughts {posts.length > 0 && `(${posts.length})`}</h1>
+      <h1 className="pb-2">
+        Thoughts {posts.length > 0 && `(${posts.length})`}
+      </h1>
       {posts.map((post, index) => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div
             className={clsx({
               "flex w-full justify-between py-2": true,
-              "border-b border-b-gray-4 dark:border-b-gray-4": index !== posts.length - 1,
+              "border-b border-b-gray-4 dark:border-b-gray-4":
+                index !== posts.length - 1,
               "border-t border-t-gray-4": index === 0,
             })}
           >
             <p>{post.title}</p>
-            <p className="text-gray-8">{formatter.format(new Date(post.time.created))}</p>
+            <p className="text-gray-8">
+              {formatter.format(new Date(post.time.created))}
+            </p>
           </div>
         </Link>
       ))}
