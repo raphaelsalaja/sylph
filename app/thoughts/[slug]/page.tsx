@@ -11,9 +11,7 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
-  const post = getData("app/thoughts/posts").find(
-    (post) => post.slug === params.slug
-  );
+  const post = getData("app/thoughts/posts").find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

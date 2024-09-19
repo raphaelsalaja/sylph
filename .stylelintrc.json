@@ -1,7 +1,34 @@
 {
+  "$schema": "https://json.schemastore.org/stylelintrc.json",
   "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
   "rules": {
     "at-rule-no-unknown": null,
-    "order/order": ["at-rules", "custom-properties", "declarations", "rules"]
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"]
+      }
+    ],
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["stylelint-commands"]
+      }
+    ],
+    "declaration-empty-line-before": [
+      "always",
+      {
+        "except": ["after-declaration", "first-nested"]
+      }
+    ],
+    "no-duplicate-selectors": null,
+    "order/order": ["at-rules", "custom-properties", "declarations", "rules"],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"]
+      }
+    ]
   }
 }

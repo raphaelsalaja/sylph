@@ -1,0 +1,75 @@
+/* 
+ * The components layer is for class-based styles that you want to be able to override with utilities.
+ * @see: https://tailwindcss.com/docs/adding-custom-styles
+*/
+
+@tailwind components;
+
+@layer components {
+  .preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    margin-top: 4px;
+    border-color: var(--border);
+    border-width: 1px;
+    border-radius: var(--radius);
+
+    &[data-with-codeblock="true"] {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      & + figure {
+        margin-top: 0;
+        border-top-width: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+@layer components {
+  .article {
+    .flex > * {
+      margin-top: 0 !important;
+    }
+
+    *:not(:first-child) {
+      margin-top: 16px;
+    }
+
+    h1 + h2 {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+@layer components {
+  .bg-hover {
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    height: fit-content;
+    padding: 4px;
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background-color: var(--gray-a2);
+      border-radius: 0.25rem;
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: scale(0.5);
+    }
+
+    &:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

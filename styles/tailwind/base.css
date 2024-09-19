@@ -1,0 +1,72 @@
+/* 
+ * The base layer is for things like reset rules or default styles applied to plain HTML elements.
+ * @see: https://tailwindcss.com/docs/adding-custom-styles
+*/
+
+@tailwind base;
+
+/* 
+ * Setting the default styles for the project.
+*/
+
+@layer base {
+  :root {
+    --bg: var(--gray-1);
+    --fg: var(--gray-12);
+    --muted: var(--gray-8);
+    --border: var(--gray-4);
+    --scrollbar-thumb: var(--gray-2);
+    --scrollbar-track: transparent;
+    --selection-background: var(--lime-3);
+    --selection-foreground: var(--lime-11);
+    --radius: 0.25rem;
+  }
+
+  *::selection {
+    color: var(--selection-foreground);
+    background-color: var(--selection-background);
+  }
+
+  * {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+  }
+}
+
+/* 
+ * Setting the default typography styles for the project.
+*/
+
+@layer base {
+  html {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--fg);
+    text-wrap: pretty;
+    letter-spacing: -0.09px;
+    background-color: var(--bg);
+
+    h1 {
+      font-weight: 500;
+    }
+
+    h2,
+    h3,
+    sub {
+      color: var(--gray-8);
+    }
+
+    sub {
+      font-size: 12px;
+      letter-spacing: 0.01px;
+    }
+
+    a {
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

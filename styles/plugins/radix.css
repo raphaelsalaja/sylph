@@ -1,0 +1,25 @@
+/* 
+ * We are using Radix Colors to provide a set of colors that can be used in the project.
+ * Radix Colors provides the colors bundled as raw CSS files. 
+ * You can import them directly in your files when using a bundler, such as Parcel or Webpack.
+ * @see: https://www.radix-ui.com/colors/docs/overview/usage
+*/
+
+/* gray */
+
+@import url("@radix-ui/colors/gray.css");
+@import url("@radix-ui/colors/gray-alpha.css");
+@import url("@radix-ui/colors/gray-dark.css");
+@import url("@radix-ui/colors/gray-dark-alpha.css");
+
+/* lime */
+
+@import url("@radix-ui/colors/lime.css");
+@import url("@radix-ui/colors/lime-alpha.css");
+@import url("@radix-ui/colors/lime-dark.css");
+@import url("@radix-ui/colors/lime-dark-alpha.css");
+
+/* overlays */
+
+@import url("@radix-ui/colors/black-alpha.css");
+@import url("@radix-ui/colors/white-alpha.css");
