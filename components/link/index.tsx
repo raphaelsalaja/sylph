@@ -4,7 +4,7 @@ interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
   underline?: boolean;
 }
 
-const Link = ({ text, href, underline, children }: LinkProps) => {
+export const Link = ({ text, href, underline, children }: LinkProps) => {
   return (
     <a
       target="_blank"

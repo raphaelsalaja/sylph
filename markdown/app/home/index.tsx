@@ -1,8 +1,9 @@
+import { Link as LabeledLink } from "@/components/link";
 import * as FadeIn from "@/components/motion/staggers/fade";
 import * as Theme from "@/components/theme";
 import { getData } from "@/markdown/utils/mdx";
 import clsx from "clsx";
-import { Link } from "next-view-transitions";
+import { Link as NextViewTransition } from "next-view-transitions";
 import AboutMe from "./about-me.mdx";
 import Header from "./header.mdx";
 
@@ -37,7 +38,7 @@ const Posts = ({ category }: PostProps) => {
 
       {posts.map((post, index) => {
         return (
-          <Link key={post.slug} href={`/${path}/${post.slug.replace(/\s+/g, "-")}`}>
+          <NextViewTransition key={post.slug} href={`/${path}/${post.slug.replace(/\s+/g, "-")}`}>
             <div
               className={clsx({
                 "flex w-full justify-between py-2": true,
@@ -48,7 +49,7 @@ const Posts = ({ category }: PostProps) => {
               <p>{post.title}</p>
               <p className="text-gray-8">{formatter.format(new Date(post.time.created))}</p>
             </div>
-          </Link>
+          </NextViewTransition>
         );
       })}
     </div>
@@ -100,7 +101,7 @@ const Footer = () => {
     <FadeIn.Item>
       <div className="flex w-full items-center justify-between border-t border-t-gray-4 pt-2">
         <div className="px-[2px] text-gray-8 text-xs tracking-[0.01px]">
-          Built with <Link href="https://nextjs.org/" text="Next.js" underline />
+          Built with <LabeledLink href="https://nextjs.org/" text="Next.js" underline />
         </div>
         <div className="text-gray-8 text-xs tracking-[0.01px]">
           <Theme.Switch />
