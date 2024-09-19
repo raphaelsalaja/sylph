@@ -12,10 +12,8 @@ const regular = fetch(new URL("/public/assets/inter/regular.ttf", import.meta.ur
 
 const medium = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
 
-const semibold = fetch(new URL("/public/assets/inter/semi-bold.ttf", import.meta.url)).then((res) => res.arrayBuffer());
-
 export async function GET(request: Request) {
-  const [regularFontData, boldFontData, semiboldFontData] = await Promise.all([regular, medium, semibold]);
+  const [regularFontData, boldFontData] = await Promise.all([regular, medium]);
 
   try {
     const { searchParams } = new URL(request.url);
@@ -77,11 +75,6 @@ export async function GET(request: Request) {
             name: "Inter",
             data: boldFontData,
             weight: 500,
-          },
-          {
-            name: "Inter",
-            data: semiboldFontData,
-            weight: 600,
           },
         ],
       },
