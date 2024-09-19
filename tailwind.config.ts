@@ -78,6 +78,18 @@ const config: Config = {
           a11: "var(--lime-a11)",
           a12: "var(--lime-a12)",
         },
+        background: "var(--bg)",
+        foreground: "var(--fg)",
+        muted: "var(--muted)",
+        border: "var(--border)",
+        scrollbar: {
+          thumb: "var(--scrollbar-thumb)",
+          track: "var(--scrollbar-track)",
+        },
+        selection: {
+          background: "var(--selection-background)",
+          foreground: "var(--selection-foreground)",
+        },
       },
     },
   },

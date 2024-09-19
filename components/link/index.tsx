@@ -2,15 +2,23 @@ import clsx from "clsx";
 interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
   text?: string;
   underline?: boolean;
+  className?: string;
 }
 
-export const Link = ({ text, href, underline, children }: LinkProps) => {
+export const Link = ({
+  text,
+  href,
+  underline,
+  className,
+  children,
+}: LinkProps) => {
   return (
     <a
       target="_blank"
       rel="noopener noreferrer nofollow"
-      className={clsx({
-        "underline decoration-2 decoration-gray-a4 underline-offset-2": underline,
+      className={clsx(className, {
+        "underline decoration-1 decoration-gray-a4 underline-offset-2":
+          underline,
       })}
       href={href}
     >
