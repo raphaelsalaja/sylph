@@ -1,19 +1,169 @@
 ---
-title: "Styling"
+title: "Basic Writing and Formatting Syntax"
 order: 3
 time:
   created: "Wed Sep 19 2024 15:00:21 GMT+0100 (Irish Standard Time)"
   updated: "Fri Mar 29 2024 19:17:50 GMT+0000 (Greenwich Mean Time)"
 ---
 
-# The Power of Disruption
+> This guide is an abstraction from Github's [Basic Writing and Formatting Syntax](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax) documentation.
+> We are using it to show the various styles that we have available.
 
-In today’s world, boundaries are not just meant to be crossed—they’re meant to be obliterated. From the classroom to the boardroom, the constraints society places on creativity and innovation serve only to stagnate progress. The greatest leaders—those who transcend their respective industries—are the ones who refuse to stay inside the lines. I believe in tearing down walls, and that’s exactly what I’ve done throughout my career.
+# Headings
 
-# Breaking the Mold
+To create a heading, add one to two <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the hierarchy level and typeface size of the heading.
 
-Take fashion, for example. The traditional rules of couture and streetwear no longer apply. What I’ve learned from studying Virgil Abloh’s work is that fashion is communication—a means of articulating our identity, our culture, and our values. It doesn’t have to be linear, and it shouldn’t be confined to arbitrary definitions.
+<Preview codeblock>
+  <div>
+    <h1>Heading 1</h1>
+    <div/>
+    <h2>Heading 2</h2>
+  </div>
+</Preview>
 
-Likewise, in music, Kanye West has taught us that the best creative works often come from risk-taking. Whether it’s an unexpected sample in a track or an album that breaks away from conventional genre constraints, true art always challenges the status quo. Disruption breeds creativity—and in my work, I aim to consistently defy expectations.
+```markdown
+# Heading 1
+# Heading 2
+```
 
-Conclusion: In the end, innovation isn’t about staying within the bounds of what’s known; it’s about stepping into the unknown. The future belongs to those who are willing to disrupt today’s standards and redefine what’s possible tomorrow.
+# Styling Text
+
+You can indicate emphasis with bold, italic, strikethrough, subscript, or superscript text in comment fields and .md files.
+
+<Preview codeblock>
+  <div>**Bold**</div>
+  <div>*Italic*</div>
+  <div>~~Strikethrough~~</div>
+  <div><sub>Subscript</sub></div>
+  <div><sup>Superscript</sup></div>
+  <div><kbd>⌘</kbd><kbd>K</kbd></div>
+</Preview>
+
+```markdown
+**Bold**
+*Italic*
+~~Strikethrough~~
+<sub>Subscript</sub>
+<sup>Superscript</sup>
+<kbd>⌘</kbd><kbd>K</kbd>
+```
+
+# Quoting Text
+
+You can quote text with a <kbd>></kbd>.
+
+<Preview codeblock>
+  Text that is not a quote
+  > Text that is a quote
+</Preview>
+```markdown
+Text that is not a quote
+> Text that is a quote
+```
+
+# Links
+
+You can create an inline link by wrapping link text in brackets <kbd>[ ]</kbd>, and then wrapping the URL in parentheses <kbd>( )</kbd>.
+
+<Preview codeblock>
+  [Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+</Preview>
+```markdown
+[Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+```
+
+# Lists
+
+You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd>.
+
+<Preview codeblock>
+  - George Washington
+  - John Adams
+  - Thomas Jefferson
+</Preview>
+```markdown
+- George Washington
+- John Adams
+- Thomas Jefferson
+```
+To order your list, precede each line with a number.
+
+<Preview codeblock>
+  1. James Madison
+  2. James Monroe
+  3. John Quincy Adams
+</Preview>
+```markdown
+1. James Madison
+2. James Monroe
+3. John Quincy Adams
+```
+
+# Footnotes
+
+You can add footnotes to your content by using this bracket syntax <kbd>`[^1]`</kbd> and then defining the footnote at the bottom of your content.
+
+
+<Preview codeblock>
+  <div>Here is a simple footnote[^1].</div>
+  <div>A footnote can also have multiple lines[^2].</div>
+  [^1]: My reference.
+  [^2]: To add line breaks within a footnote, prefix new lines with 2 spaces.
+    This is a second line.
+</Preview>
+```markdown
+Here is a simple footnote[^1].
+A footnote can also have multiple lines[^2].
+
+[^1]: My reference.
+[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces. This is a second line.
+```
+
+# Preview 
+
+You can preview your markdown content in real-time by using the preview feature in the editor. We have been using it throughout this guide to show you how your markdown content will look when rendered. It comes with a single prop, <kbd>codeblock</kbd>, that you can use to display the code block right below the preview.
+
+<Preview codeblock>
+  <Preview codeblock>
+   <div className="bg-gray-2 border-gray-4 border w-32 h-16 rounded"/>
+  </Preview>
+  ```tsx
+    <div className="bg-red-400 w-32 h-16 rounded"/>
+  ```
+</Preview>
+```tsx
+<Preview>
+  <div className="bg-gray-2 border-gray-4 border w-32 h-16 rounded"/>
+</Preview>
+```
+
+# Inline Code
+
+Append <kbd>`{:lang}{:js}`</kbd> (e.g. <kbd>`{:js}{:js}`</kbd>) to the end of inline code to highlight it like a regular code block.
+
+<Preview codeblock>
+  To useEffect or not to `useEffect(){:js}`, that is the question.
+</Preview>
+```markdown
+This is an array `[1, 2, 3]{:js}` of numbers 1 through 3.
+```
+
+
+# Code Blocks
+
+To format code or text into its own distinct block, use triple backticks.
+ 
+<Preview codeblock>
+```tsx
+function feature() {
+  return "It works in my environment.";
+}
+```
+</Preview>
+```markdown
+```tsx  
+function feature() {
+  return "It works in my environment.";
+}
+```‎ 
+```

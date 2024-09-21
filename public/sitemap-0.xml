@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://sylph.raphaelsalaja.com/icon</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/thoughts/age-of-ai</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/thoughts/jobsism</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/thoughts/status-quo</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/guides/Jobsism: The Philosophy of Steve Jobs</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/guides/left-to-right</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/guides/status-quo</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/experiments/jobsism</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/experiments/left-to-right</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://sylph.raphaelsalaja.com/experiments/status-quo</loc><lastmod>2024-09-18T20:46:03.610Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/icon</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/thoughts/age-of-ai</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/thoughts/jobsism</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/thoughts/status-quo</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/guides/adding-posts-and-sections</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/guides/components</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/guides/installation</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/guides/quick-start</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/guides/styling</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/experiments/button</loc><lastmod>2024-09-21T23:26:18.981Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/experiments/left-to-right</loc><lastmod>2024-09-21T23:26:18.982Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://sylph.raphaelsalaja.com/experiments/status-quo</loc><lastmod>2024-09-21T23:26:18.982Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
