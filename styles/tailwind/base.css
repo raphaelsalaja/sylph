@@ -15,11 +15,11 @@
     --fg: var(--gray-12);
     --muted: var(--gray-8);
     --border: var(--gray-4);
-    --scrollbar-thumb: var(--gray-2);
+    --scrollbar-thumb: var(--gray-4);
     --scrollbar-track: transparent;
     --selection-background: var(--lime-3);
     --selection-foreground: var(--lime-11);
-    --radius: 0.25rem;
+    --radius: 8px;
   }
 
   *::selection {
@@ -30,6 +30,11 @@
   * {
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
     scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  * {
+    text-wrap: pretty;
   }
 }
 
@@ -42,7 +47,6 @@
     font-size: 14px;
     line-height: 21px;
     color: var(--fg);
-    text-wrap: pretty;
     letter-spacing: -0.09px;
     background-color: var(--bg);
 
@@ -69,6 +73,14 @@
       &:hover {
         opacity: 0.5;
       }
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    ul {
+      list-style: disc;
     }
 
     kbd {

@@ -1,3 +1,4 @@
+import Image from "@/components/image";
 import Link from "@/components/link";
 import { options } from "@/markdown/utils/config";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
@@ -5,6 +6,7 @@ import clsx from "clsx";
 import type { MDXComponents } from "mdx/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import type { ImageProps } from "next/image";
 import React from "react";
 
 const components: MDXComponents = {
@@ -13,6 +15,9 @@ const components: MDXComponents = {
       {children}
     </figure>
   ),
+  Image: ({ caption, alt, ...props }: ImageProps & { caption?: string }) => {
+    return <Image {...props} caption={caption} alt={alt} />;
+  },
 };
 
 const html: MDXComponents = {
@@ -22,9 +27,9 @@ const html: MDXComponents = {
     }
   },
   a: ({ children, href }) => {
-    if (href?.includes("#user-content-")) {
+    if (href?.startsWith("#user-content-fn-")) {
       return (
-        <a href={href} className="text-primary" target="_blank" rel="noopener noreferrer nofollow" data-footnote-superscript>
+        <a href={href} className="footnote-superscript" target="_blank" rel="noopener noreferrer nofollow">
           {children}
         </a>
       );
@@ -37,19 +42,21 @@ const html: MDXComponents = {
     );
   },
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <blockquote className={clsx("mt-6 border-gray-4 border-l-2 pl-6 text-muted italic", className)} {...props} />
+    <blockquote className={clsx("mt-6 border-gray-4 border-l-2 pl-6 text-muted", className)} {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 w-full overflow-y-auto rounded-lg">
-      <table className={clsx("w-full overflow-hidden rounded-lg", className)} {...props} />
+    <div className="my-6 w-full overflow-hidden overflow-y-auto">
+      <table className={clsx("w-full overflow-hidden", className)} {...props} />
     </div>
   ),
-  tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => <tr className={clsx("m-0 border-t p-0", className)} {...props} />,
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th className={clsx("border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
+    <th
+      className={clsx("border border-border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right", className)}
+      {...props}
+    />
   ),
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className={clsx("border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
+    <td className={clsx("border border-border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => {
     if (
@@ -69,9 +76,23 @@ const html: MDXComponents = {
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
               if (child.type === "p") {
+                const href = child.props.children.find((child: React.ReactNode) => {
+                  if (React.isValidElement(child)) {
+                    return React.isValidElement(child) && "props" in child && (child.props as { href?: string }).href?.includes("user-content-fnref-");
+                  }
+                  return false;
+                })?.props.href;
+
+                const filtered = child.props.children.filter((child: React.ReactNode) => {
+                  if (React.isValidElement(child)) {
+                    return !(React.isValidElement(child) && "props" in child && (child.props as { href?: string }).href?.includes("user-content-fnref-"));
+                  }
+                  return true;
+                });
+
                 return (
-                  <a target="_blank" rel="noopener noreferrer nofollow" href={child.props.children[1].props.href}>
-                    {child.props.children[0]}
+                  <a target="_blank" rel="noopener noreferrer nofollow" href={href} className="footnote-backref">
+                    {filtered}
                   </a>
                 );
               }

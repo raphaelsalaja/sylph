@@ -6,7 +6,7 @@ time:
   updated: "Fri Mar 29 2024 19:17:50 GMT+0000 (Greenwich Mean Time)"
 ---
 
-> This guide is an abstraction from Github's [Basic Writing and Formatting Syntax](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax) documentation.
+> This guide is an abstraction from Github's Formatting Syntax documentation.[^1]\
 > We are using it to show the various styles that we have available.
 
 # Headings
@@ -105,18 +105,14 @@ You can add footnotes to your content by using this bracket syntax <kbd>`[^1]`</
 
 
 <Preview codeblock>
-  <div>Here is a simple footnote[^1].</div>
-  <div>A footnote can also have multiple lines[^2].</div>
-  [^1]: My reference.
-  [^2]: To add line breaks within a footnote, prefix new lines with 2 spaces.
-    This is a second line.
+  <div>The invention of the printing press revolutionized the spread of information in Europe during the 15th century.[^2]</div>
+
+  [^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
 </Preview>
 ```markdown
-Here is a simple footnote[^1].
-A footnote can also have multiple lines[^2].
+The invention of the printing press revolutionized the spread of information in Europe during the 15th century.[^2].
 
-[^1]: My reference.
-[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces. This is a second line.
+[^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
 ```
 
 # Preview 
@@ -165,5 +161,45 @@ function feature() {
 function feature() {
   return "It works in my environment.";
 }
-```‎ 
+```‎
 ```
+
+# Media
+
+You can embed images, videos, and other media in your markdown content.
+
+## Images
+<Preview codeblock>
+  ![Alt text](https://via.placeholder.com/150)
+</Preview>
+```markdown
+![Alt text](https://via.placeholder.com/150)
+```
+
+To add a caption below the image, use the following syntax
+
+<Preview codeblock>
+<Image src='https://via.placeholder.com/150' alt='Placeholder' caption='Caption' />
+</Preview>
+```markdown
+<Image src='https://via.placeholder.com/150' alt='Placeholder' caption='Caption' />
+```
+
+# Tables
+
+You can create tables by assembling a list of words and dividing them with hyphens <kbd>-</kbd> (for the first row), and then separating each column with a pipe <kbd>|</kbd>.
+
+<Preview codeblock>
+  | First Header  | Second Header |
+  | ------------- | ------------- |
+  | Content Cell  | Content Cell  |
+  | Content Cell  | Content Cell  |
+</Preview>
+```markdown
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+```
+
+[^1]: Github, ["Basic Writing and Formatting Syntax"](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax) Github, 2024. [Accessed: 19-Sep-2024].

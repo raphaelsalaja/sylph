@@ -80,8 +80,20 @@
 
 @layer components {
   .footnotes {
+    position: relative;
+    padding-top: 16px;
     margin-top: 64px !important;
-    border-top: 1px solid var(--border);
+    border-top: none;
+  }
+
+  .footnotes::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    content: "";
+    background: linear-gradient(to right, var(--border), var(--border));
     border-radius: var(--radius);
   }
 
@@ -95,7 +107,6 @@
 
   .footnotes li {
     margin-top: 0 !important;
-    margin-bottom: 4px !important;
   }
 
   .footnotes ol li {
@@ -115,7 +126,26 @@
     content: counter(list);
   }
 
-  [data-footnote-superscript] {
+  .footnotes ol li p a {
+    z-index: 2;
+  }
+
+  .footnotes .footnote-backref {
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    a {
+      color: var(--gray-9) !important;
+    }
+  }
+
+  .footnote-superscript {
     margin-right: 2px;
     margin-left: 2px;
   }
