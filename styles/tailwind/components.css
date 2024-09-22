@@ -6,6 +6,36 @@
 @tailwind components;
 
 @layer components {
+  @media (width <= 1080px) {
+    .aside {
+      position: static;
+      padding: 0 0 2rem;
+    }
+  }
+
+  .aside {
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+  }
+
+  .return {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding-top: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.01px;
+    transition: color 0.1s ease;
+
+    :hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+@layer components {
   .preview {
     display: flex;
     flex-direction: column;

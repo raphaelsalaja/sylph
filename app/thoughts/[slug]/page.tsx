@@ -1,3 +1,4 @@
+import { Return } from "@/components/return";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
 import { notFound } from "next/navigation";
@@ -25,6 +26,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <React.Fragment>
+      <Return />
       <h1>{post.title}</h1>
       <h2>{formatter.format(new Date(post.time.created))}</h2>
       <MDX source={post.content} />
