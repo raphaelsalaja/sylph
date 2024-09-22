@@ -131,6 +131,8 @@
   }
 
   .footnotes .footnote-backref {
+    cursor: pointer;
+
     svg {
       width: 12px;
       height: 12px;
@@ -146,7 +148,9 @@
   }
 
   .footnote-superscript {
+    display: inline-block;
     margin-right: 2px;
     margin-left: 2px;
+    cursor: pointer;
   }
 }

@@ -21,7 +21,7 @@ To create a heading, add one to two <kbd>#</kbd> symbols before your heading tex
   </div>
 </Preview>
 
-```markdown
+```text copy
 # Heading 1
 # Heading 2
 ```
@@ -39,7 +39,7 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
   <div><kbd>⌘</kbd><kbd>K</kbd></div>
 </Preview>
 
-```markdown
+```text
 **Bold**
 *Italic*
 ~~Strikethrough~~
@@ -56,7 +56,7 @@ You can quote text with a <kbd>></kbd>.
   Text that is not a quote
   > Text that is a quote
 </Preview>
-```markdown
+```text
 Text that is not a quote
 > Text that is a quote
 ```
@@ -68,7 +68,7 @@ You can create an inline link by wrapping link text in brackets <kbd>[ ]</kbd>, 
 <Preview codeblock>
   [Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 </Preview>
-```markdown
+```text
 [Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 ```
 
@@ -81,7 +81,7 @@ You can make an unordered list by preceding one or more lines of text with <kbd>
   - John Adams
   - Thomas Jefferson
 </Preview>
-```markdown
+```text
 - George Washington
 - John Adams
 - Thomas Jefferson
@@ -93,7 +93,7 @@ To order your list, precede each line with a number.
   2. James Monroe
   3. John Quincy Adams
 </Preview>
-```markdown
+```text
 1. James Madison
 2. James Monroe
 3. John Quincy Adams
@@ -109,7 +109,7 @@ You can add footnotes to your content by using this bracket syntax <kbd>`[^1]`</
 
   [^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
 </Preview>
-```markdown
+```text
 The invention of the printing press revolutionized the spread of information in Europe during the 15th century.[^2].
 
 [^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
@@ -140,7 +140,7 @@ Append <kbd>`{:lang}{:js}`</kbd> (e.g. <kbd>`{:js}{:js}`</kbd>) to the end of in
 <Preview codeblock>
   To useEffect or not to `useEffect(){:js}`, that is the question.
 </Preview>
-```markdown
+```text
 This is an array `[1, 2, 3]{:js}` of numbers 1 through 3.
 ```
 
@@ -156,7 +156,7 @@ function feature() {
 }
 ```
 </Preview>
-```markdown
+```text
 ```tsx  
 function feature() {
   return "It works in my environment.";
@@ -170,19 +170,19 @@ You can embed images, videos, and other media in your markdown content.
 
 ## Images
 <Preview codeblock>
-  ![Alt text](https://via.placeholder.com/150)
+![Alt text](https://via.placeholder.com/300)
 </Preview>
-```markdown
-![Alt text](https://via.placeholder.com/150)
+```text
+![Alt text](https://via.placeholder.com/300)
 ```
 
 To add a caption below the image, use the following syntax
 
 <Preview codeblock>
-<Image src='https://via.placeholder.com/150' alt='Placeholder' caption='Caption' />
+<Image src='https://via.placeholder.com/300' alt='Placeholder' caption='Caption'/>
 </Preview>
-```markdown
-<Image src='https://via.placeholder.com/150' alt='Placeholder' caption='Caption' />
+```text
+<Image src='https://via.placeholder.com/300' alt='Placeholder' caption='Caption'/>
 ```
 
 # Tables
@@ -195,7 +195,7 @@ You can create tables by assembling a list of words and dividing them with hyphe
   | Content Cell  | Content Cell  |
   | Content Cell  | Content Cell  |
 </Preview>
-```markdown
+```text
 | First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
