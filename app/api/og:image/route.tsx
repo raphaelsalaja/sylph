@@ -1,16 +1,53 @@
+import type React from "react";
+
 import { ImageResponse } from "next/og";
 
+export const runtime = "edge";
+
 type Parameters = {
-  width?: number;
-  height?: number;
   title?: string;
 };
 
-const regular = fetch(new URL("/public/assets/inter/regular.ttf", import.meta.url)).then((res) => res.arrayBuffer());
-const medium = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
+const inter = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
+
+const Logo = () => (
+  <div
+    style={{
+      backgroundImage: "linear-gradient(45deg, #BDEE63, #97be4d)",
+      height: 32,
+      width: 32,
+      borderRadius: 100,
+      marginBottom: 8,
+    }}
+  />
+);
+
+const Name = ({ children }: React.HTMLProps<HTMLDivElement>) => (
+  <div
+    style={{
+      color: "#202020",
+      fontWeight: 500,
+      height: 32,
+    }}
+  >
+    {children}
+  </div>
+);
+
+const Title = ({ children }: React.HTMLProps<HTMLDivElement>) => (
+  <div
+    style={{
+      color: "#838383",
+      fontWeight: 500,
+      height: 32,
+    }}
+  >
+    {children}
+  </div>
+);
 
 export async function GET(request: Request) {
-  const [regularFontData, boldFontData] = await Promise.all([regular, medium]);
+  const [font] = await Promise.all([inter]);
 
   try {
     const { searchParams } = new URL(request.url);
@@ -20,44 +57,39 @@ export async function GET(request: Request) {
     return new ImageResponse(
       <div
         style={{
+          display: "flex",
           height: "100%",
           width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
-          backgroundColor: "#FCFCFC",
-          fontSize: 32,
-          letterSpacing: "-0.69px",
-          lineHeight: "48px",
           padding: 48,
+          backgroundColor: "#FCFCFC",
+          fontSize: 24,
+          justifyContent: "space-between",
+          letterSpacing: "-0.47px",
+          lineHeight: "24px",
         }}
       >
         <div
           style={{
-            backgroundColor: "#BDEE63",
-            height: 32,
-            width: 32,
-            borderRadius: 100,
-            marginBottom: 16,
-          }}
-        />
-        <div
-          style={{
-            color: "#202020",
-            fontWeight: 500,
+            display: "flex",
+            height: "32px",
+            alignItems: "center",
+            gap: 16,
           }}
         >
-          Full Name
+          <Logo />
+          <Name>Sylph</Name>
         </div>
+
         {title && (
           <div
             style={{
-              color: "#838383",
-              fontWeight: 400,
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              gap: 8,
             }}
           >
-            {parameters.title}
+            <Title>{parameters.title}</Title>
           </div>
         )}
       </div>,
@@ -67,12 +99,7 @@ export async function GET(request: Request) {
         fonts: [
           {
             name: "Inter",
-            data: regularFontData,
-            weight: 400,
-          },
-          {
-            name: "Inter",
-            data: boldFontData,
+            data: font,
             weight: 500,
           },
         ],

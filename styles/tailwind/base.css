@@ -119,13 +119,13 @@
     }
 
     [data-highlight="true"]::before {
-      background-color: var(--lime-4);
+      background-color: var(--yellow-4);
       transform: scaleY(1.1);
     }
 
     [data-highlight="false"]::before {
       background-color: transparent;
-      transform: scaleY(1); /* Back to normal scale */
+      transform: scaleY(1);
     }
   }
 }
