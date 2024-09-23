@@ -101,6 +101,9 @@ importers:
       tailwind-highlightjs:
         specifier: ^2.0.1
         version: 2.0.1(highlight.js@11.10.0)(tailwindcss@3.4.11)
+      tailwind-merge:
+        specifier: ^2.5.2
+        version: 2.5.2
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -3249,6 +3252,9 @@ packages:
     peerDependencies:
       highlight.js: ^10.7.2
       tailwindcss: '>=3.0.0 || insiders'
+
+  tailwind-merge@2.5.2:
+    resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
 
   tailwindcss-radix-colors@1.4.1:
     resolution: {integrity: sha512-jlSYXsjq8uavjQPXbMJJwDhojG0wlTasJTnM9hmXXPaDOvNUTeeU0YEILWakUpuxWJ8xyzyInz9JVZGHs3/dCw==}
@@ -7251,6 +7257,8 @@ snapshots:
       tailwindcss: 3.4.11
     transitivePeerDependencies:
       - encoding
+
+  tailwind-merge@2.5.2: {}
 
   tailwindcss-radix-colors@1.4.1(tailwindcss@3.4.11):
     dependencies:
