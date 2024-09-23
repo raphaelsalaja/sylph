@@ -1,7 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 type Parameters = {
   width?: number;
   height?: number;
