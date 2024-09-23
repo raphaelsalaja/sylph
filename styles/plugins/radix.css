@@ -19,6 +19,13 @@
 @import url("@radix-ui/colors/lime-dark.css");
 @import url("@radix-ui/colors/lime-dark-alpha.css");
 
+/* yellow */
+
+@import url("@radix-ui/colors/yellow.css");
+@import url("@radix-ui/colors/yellow-alpha.css");
+@import url("@radix-ui/colors/yellow-dark.css");
+@import url("@radix-ui/colors/yellow-dark-alpha.css");
+
 /* overlays */
 
 @import url("@radix-ui/colors/black-alpha.css");
