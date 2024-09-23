@@ -166,23 +166,18 @@ function feature() {
 
 # Media
 
-You can embed images, videos, and other media in your markdown content.
+You can embed images, videos, and other media in your markdown content. You can also add captions to your images via the <kbd>`<Image/>`</kbd> component.
 
 ## Images
 <Preview codeblock>
-![Alt text](https://via.placeholder.com/300)
+<div className="flex flex-row gap-4">
+  ![Alt text](https://via.placeholder.com/150)
+  <Image src='https://via.placeholder.com/150' alt='Placeholder' caption='Caption'/>
+</div>
 </Preview>
 ```text
-![Alt text](https://via.placeholder.com/300)
-```
-
-To add a caption below the image, use the following syntax
-
-<Preview codeblock>
-<Image src='https://via.placeholder.com/300' alt='Placeholder' caption='Caption'/>
-</Preview>
-```text
-<Image src='https://via.placeholder.com/300' alt='Placeholder' caption='Caption'/>
+![Alt text](https://via.placeholder.com/100)
+<Image src='https://via.placeholder.com/100' alt='Placeholder' caption='Caption'/>
 ```
 
 # Tables

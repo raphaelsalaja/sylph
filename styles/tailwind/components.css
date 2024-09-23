@@ -6,31 +6,19 @@
 @tailwind components;
 
 @layer components {
-  @media (width <= 1080px) {
-    .aside {
-      position: static;
-      padding: 0 0 2rem;
-    }
-  }
-
-  .aside {
-    position: fixed;
-    top: 5rem;
-    left: 5rem;
-  }
-
-  .return {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    padding-top: 4px;
-    font-size: 12px;
+  nav {
     color: var(--muted);
-    letter-spacing: 0.01px;
-    transition: color 0.1s ease;
+    transition: color 0.2s ease;
 
-    :hover {
-      opacity: 0.5;
+    .return {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding-top: 4px;
+
+      :hover {
+        opacity: 0.5;
+      }
     }
   }
 }
@@ -75,8 +63,13 @@
       margin-top: 8px !important;
     }
 
+    figure + h1,
+    p + h1 {
+      margin-top: 48px !important;
+    }
+
     *:not(:first-child, kbd) {
-      margin-top: 16px;
+      margin-top: 24px;
     }
   }
 }

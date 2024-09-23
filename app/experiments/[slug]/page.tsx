@@ -27,10 +27,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <React.Fragment>
-      <Return />
       <h1>{post.title}</h1>
       <h2>{formatter.format(new Date(post.time.created))}</h2>
       <MDX source={post.content} />
+      <Return />
     </React.Fragment>
   );
 }

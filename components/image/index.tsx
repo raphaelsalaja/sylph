@@ -20,13 +20,13 @@ export default function CustomImage({ caption, ...props }: ImageProps & { captio
       }}
     >
       <div
-        className="overflow-hidden rounded border bg-red"
+        className="overflow-hidden rounded border"
         style={{
           position: "relative",
           width: "100%",
           height: "auto",
           maxHeight: "480px",
-          backgroundColor: gray.gray2,
+          backgroundColor: gray.gray4,
         }}
       >
         <Image

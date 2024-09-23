@@ -103,5 +103,29 @@
         background-color: transparent !important;
       }
     }
+
+    [data-highlight] {
+      position: relative;
+    }
+
+    [data-highlight]::before {
+      position: absolute;
+      inset: 0 -5px;
+      z-index: -1;
+      content: "";
+      background-color: transparent;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      transform: scaleY(1.1);
+    }
+
+    [data-highlight="true"]::before {
+      background-color: var(--lime-4);
+      transform: scaleY(1.1);
+    }
+
+    [data-highlight="false"]::before {
+      background-color: transparent;
+      transform: scaleY(1); /* Back to normal scale */
+    }
   }
 }
