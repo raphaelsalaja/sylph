@@ -9,7 +9,6 @@ type Parameters = {
 };
 
 const regular = fetch(new URL("/public/assets/inter/regular.ttf", import.meta.url)).then((res) => res.arrayBuffer());
-
 const medium = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
 
 export async function GET(request: Request) {
@@ -65,6 +64,8 @@ export async function GET(request: Request) {
         )}
       </div>,
       {
+        width: 1200,
+        height: 630,
         fonts: [
           {
             name: "Inter",
