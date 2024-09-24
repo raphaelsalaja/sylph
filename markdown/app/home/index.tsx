@@ -32,24 +32,24 @@ const Posts = ({ category }: PostProps) => {
 
   return (
     <div className="mt-6 flex flex-col">
-      <h1 className="pb-2">
+      <h2 className="pb-2 text-gray-8">
         {category} {posts.length > 0 && `(${posts.length})`}
-      </h1>
+      </h2>
 
       {posts.map((post, index) => {
         return (
-          <NextViewTransition key={post.slug} href={`/${path}/${post.slug.replace(/\s+/g, "-")}`}>
-            <div
-              className={clsx({
-                "flex w-full justify-between py-2": true,
-                "border-b border-b-gray-4 dark:border-b-gray-4": index !== posts.length - 1,
-                "border-t border-t-gray-4": index === 0,
-              })}
-            >
+          <div
+            key={post.slug}
+            className={clsx({
+              "border-b border-b-gray-4 dark:border-b-gray-4": index !== posts.length - 1,
+              "border-t border-t-gray-4": index === 0,
+            })}
+          >
+            <NextViewTransition href={`/${path}/${post.slug.replace(/\s+/g, "-")}`} className="flex w-full justify-between py-2">
               <p>{post.title}</p>
               <p className="text-gray-8">{formatter.format(new Date(post.time.created))}</p>
-            </div>
-          </NextViewTransition>
+            </NextViewTransition>
+          </div>
         );
       })}
     </div>

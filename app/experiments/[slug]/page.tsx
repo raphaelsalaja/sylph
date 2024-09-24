@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { TableOfContents } from "@/components/table-of-contents";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
@@ -13,7 +14,8 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
-  const post = getData("app/experiments/posts").find((post) => post.slug === params.slug);
+  const posts = getData("app/experiments/posts");
+  const post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -30,6 +32,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <h1>{post.title}</h1>
       <h2>{formatter.format(new Date(post.time.created))}</h2>
       <MDX source={post.content} />
+      <Footer posts={posts} />
       <TableOfContents />
     </React.Fragment>
   );
