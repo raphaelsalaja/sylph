@@ -2,8 +2,10 @@ import { Link as LabeledLink } from "@/components/link";
 import * as FadeIn from "@/components/motion/staggers/fade";
 import * as Theme from "@/components/theme";
 import { getData } from "@/markdown/utils/mdx";
+
 import clsx from "clsx";
 import { Link as NextViewTransition } from "next-view-transitions";
+
 import AboutMe from "./about-me.mdx";
 import Header from "./header.mdx";
 

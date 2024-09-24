@@ -16,7 +16,7 @@ To create a heading, add one to two <kbd>#</kbd> symbols before your heading tex
 <Preview codeblock>
   <div>
     <h1>Heading 1</h1>
-    <div/>
+    <div />
     <h2>Heading 2</h2>
   </div>
 </Preview>
@@ -34,9 +34,16 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
   <div>**Bold**</div>
   <div>*Italic*</div>
   <div>~~Strikethrough~~</div>
-  <div><sub>Subscript</sub></div>
-  <div><sup>Superscript</sup></div>
-  <div><kbd>⌘</kbd><kbd>K</kbd></div>
+  <div>
+    <sub>Subscript</sub>
+  </div>
+  <div>
+    <sup>Superscript</sup>
+  </div>
+  <div>
+    <kbd>⌘</kbd>
+    <kbd>K</kbd>
+  </div>
 </Preview>
 
 ```text
@@ -52,70 +59,47 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 
 You can quote text with a <kbd>></kbd>.
 
-<Preview codeblock>
-  Text that is not a quote
-  > Text that is a quote
-</Preview>
-```text
-Text that is not a quote
-> Text that is a quote
-```
+<Preview codeblock>Text that is not a quote > Text that is a quote</Preview>
+```text Text that is not a quote > Text that is a quote ```
 
 # Links
 
 You can create an inline link by wrapping link text in brackets <kbd>[ ]</kbd>, and then wrapping the URL in parentheses <kbd>( )</kbd>.
 
-<Preview codeblock>
-  [Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-</Preview>
-```text
-[Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-```
+<Preview codeblock>[Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ)</Preview>
+```text [Link](https://www.youtube.com/watch?v=dQw4w9WgXcQ) ```
 
 # Lists
 
 You can make an unordered list by preceding one or more lines of text with <kbd>-</kbd>.
 
-<Preview codeblock>
-  - George Washington
-  - John Adams
-  - Thomas Jefferson
-</Preview>
-```text
-- George Washington
-- John Adams
-- Thomas Jefferson
-```
-To order your list, precede each line with a number.
+<Preview codeblock>- George Washington - John Adams - Thomas Jefferson</Preview>
+```text - George Washington - John Adams - Thomas Jefferson ``` To order your
+list, precede each line with a number.
 
 <Preview codeblock>
-  1. James Madison
-  2. James Monroe
-  3. John Quincy Adams
+  1. James Madison 2. James Monroe 3. John Quincy Adams
 </Preview>
-```text
-1. James Madison
-2. James Monroe
-3. John Quincy Adams
-```
+```text 1. James Madison 2. James Monroe 3. John Quincy Adams ```
 
 # Footnotes
 
 You can add footnotes to your content by using this bracket syntax <kbd>`[^1]`</kbd> and then defining the footnote at the bottom of your content.
 
-
 <Preview codeblock>
   <div>The invention of the printing press revolutionized the spread of information in Europe during the 15th century.[^2]</div>
 
-  [^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
+[^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
+
 </Preview>
 ```text
 The invention of the printing press revolutionized the spread of information in Europe during the 15th century.[^2].
 
 [^2]: Johannes Gutenberg is credited with inventing the movable-type printing press around 1440 in Mainz, Germany.
-```
 
-# Preview 
+````
+
+# Preview
 
 You can preview your markdown content in real-time by using the preview feature in the editor. We have been using it throughout this guide to show you how your markdown content will look when rendered. It comes with a single prop, <kbd>codeblock</kbd>, that you can use to display the code block right below the preview.
 
@@ -125,7 +109,8 @@ You can preview your markdown content in real-time by using the preview feature 
   </Preview>
   ```tsx
     <div className="bg-red-400 w-32 h-16 rounded"/>
-  ```
+````
+
 </Preview>
 ```tsx
 <Preview>
@@ -144,11 +129,10 @@ Append <kbd>`{:lang}{:js}`</kbd> (e.g. <kbd>`{:js}{:js}`</kbd>) to the end of in
 This is an array `[1, 2, 3]{:js}` of numbers 1 through 3.
 ```
 
-
 # Code Blocks
 
 To format code or text into its own distinct block, use triple backticks.
- 
+
 <Preview codeblock>
 ```tsx
 function feature() {
@@ -171,14 +155,21 @@ You can embed images, videos, and other media in your markdown content. You can 
 ## Images
 
 <Preview codeblock>
-<div className="flex flex-row gap-4">
-  ![Alt text](https://via.placeholder.com/150)
-  <Image src='https://via.placeholder.com/150' alt='Placeholder' caption='Caption'/>
-</div>
+  <div className="flex flex-row gap-4">
+    ![Alt text](https://via.placeholder.com/150)
+    <Image
+      src="https://via.placeholder.com/150"
+      alt="Placeholder"
+      caption="Caption"
+    />
+  </div>
 </Preview>
-```text
-![Alt text](https://via.placeholder.com/100)
-<Image src='https://via.placeholder.com/100' alt='Placeholder' caption='Caption'/>
+```text ![Alt text](https://via.placeholder.com/100)
+<Image
+  src="https://via.placeholder.com/100"
+  alt="Placeholder"
+  caption="Caption"
+/>
 ```
 
 # Tables
@@ -186,16 +177,10 @@ You can embed images, videos, and other media in your markdown content. You can 
 You can create tables by assembling a list of words and dividing them with hyphens <kbd>-</kbd> (for the first row), and then separating each column with a pipe <kbd>|</kbd>.
 
 <Preview codeblock>
-  | First Header  | Second Header |
-  | ------------- | ------------- |
-  | Content Cell  | Content Cell  |
-  | Content Cell  | Content Cell  |
+  | First Header | Second Header | | ------------- | ------------- | | Content
+  Cell | Content Cell | | Content Cell | Content Cell |
 </Preview>
-```text
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-```
+```text | First Header | Second Header | | ------------- | ------------- | |
+Content Cell | Content Cell | | Content Cell | Content Cell | ```
 
 [^1]: Github, ["Basic Writing and Formatting Syntax"](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax) Github, 2024. [Accessed: 19-Sep-2024].

@@ -1,13 +1,15 @@
+import type { MDXComponents } from "mdx/types";
+import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import type { ImageProps } from "next/image";
+
 import Image from "@/components/image";
 import { Link } from "@/components/link";
 import { cn } from "@/lib/cn";
 import { options } from "@/mdx-components-options";
+
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
-import type { MDXComponents } from "mdx/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import dynamic from "next/dynamic";
-import type { ImageProps } from "next/image";
 import React from "react";
 
 const FootnoteBackReference = dynamic(() => import("@/components/footnote/back-reference"), {

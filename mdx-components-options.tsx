@@ -1,7 +1,8 @@
+import type { PluggableList } from "unified";
+
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import type { PluggableList } from "unified";
 
 export const options = {
   mdxOptions: {

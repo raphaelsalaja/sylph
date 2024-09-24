@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
-
 import * as Theme from "@/components/theme";
-import { ViewTransitions } from "next-view-transitions";
 
 import "@/styles/main.css";
+
+import type { Metadata } from "next";
+
+import { ViewTransitions } from "next-view-transitions";
+
 import { OpenGraphMetadata } from "./metadata";
 
 export const metadata: Metadata = {

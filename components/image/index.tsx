@@ -1,9 +1,10 @@
 "use client";
 
+import type { ImageProps } from "next/image";
+
 import { gray } from "@radix-ui/colors";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import type { ImageProps } from "next/image";
 import React from "react";
 
 export default function CustomImage({ caption, ...props }: ImageProps & { caption?: string }) {

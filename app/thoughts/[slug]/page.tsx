@@ -2,6 +2,7 @@ import { Footer } from "@/components/footer";
 import { TableOfContents } from "@/components/table-of-contents";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
+
 import { notFound } from "next/navigation";
 import React from "react";
 
