@@ -34,7 +34,7 @@ const Posts = ({ category }: PostProps) => {
 
   return (
     <div className="mt-6 flex flex-col">
-      <h2 className="pb-2 text-gray-8">
+      <h2 className="pb-2 text-muted">
         {category} {posts.length > 0 && `(${posts.length})`}
       </h2>
 
@@ -49,7 +49,7 @@ const Posts = ({ category }: PostProps) => {
           >
             <NextViewTransition href={`/${path}/${post.slug.replace(/\s+/g, "-")}`} className="flex w-full justify-between py-2">
               <p>{post.title}</p>
-              <p className="text-gray-8">{formatter.format(new Date(post.time.created))}</p>
+              <p className="text-muted">{formatter.format(new Date(post.time.created))}</p>
             </NextViewTransition>
           </div>
         );
@@ -101,11 +101,11 @@ const Guides = () => {
 const Footer = () => {
   return (
     <FadeIn.Item>
-      <div className="flex w-full items-center justify-between border-t border-t-gray-4 pt-2">
-        <div className="px-[2px] text-gray-8 text-xs tracking-[0.01px]">
+      <div className="flex w-full items-center justify-between border-t border-t-border pt-2">
+        <div className="px-[2px] text-muted text-xs tracking-[0.01px]">
           Built with <LabeledLink href="https://nextjs.org/" text="Next.js" underline />
         </div>
-        <div className="text-gray-8 text-xs tracking-[0.01px]">
+        <div className="text-muted text-xs tracking-[0.01px]">
           <Theme.Switch />
         </div>
       </div>
@@ -119,8 +119,8 @@ export default function Home() {
       <MDXHeader />
       <MDXAboutMe />
       <Guides />
-      <Experiments />
-      <Thoughts />
+      {/* <Experiments /> */}
+      {/* <Thoughts /> */}
       <Footer />
     </FadeIn.Container>
   );

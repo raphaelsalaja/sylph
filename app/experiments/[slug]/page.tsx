@@ -1,5 +1,5 @@
 import { Footer } from "@/components/footer";
-import { TableOfContents } from "@/components/table-of-contents";
+import { TableOfContents } from "@/components/return";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
 

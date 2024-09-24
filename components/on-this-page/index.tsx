@@ -2,9 +2,9 @@
 
 import { cn } from "@/lib/cn";
 
-import { ChevronLeftIcon } from "@radix-ui/react-icons";
-import { Link } from "next-view-transitions";
 import { useCallback, useEffect, useState } from "react";
+
+import "@/components/on-this-page/styles.css";
 
 export const TableOfContents = () => {
   const [headings, setHeadings] = useState<{ id: string; text: string; level: string }[]>([]);
@@ -82,17 +82,20 @@ export const TableOfContents = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-20 mt-0 hidden h-full w-64 gap-6 space-y-8 p-4 px-6 py-16 lg:block">
-      <Link href="/" className="flex items-center gap-1 hover:opacity-50">
-        <ChevronLeftIcon /> Home
-      </Link>
-      <div className="mt-0 flex flex-col gap-2">
+    <nav className="fixed top-[6rem] right-[6rem] mt-0 hidden h-full w-64 justify-start space-y-4 transition lg:block">
+      <div className="mt-0 flex flex-col gap-0">
         {headings.map((heading) => (
-          <div key={heading.id} className="mt-0">
+          <div key={heading.id} className="mt-0 ">
             <button
               type="button"
               onClick={() => scroll(heading.id)}
-              className={cn("mt-0 text-gray-8 opacity-100 transition ease-in-out hover:opacity-50", activeHeading === heading.id && "text-bold text-gray-12")}
+              className={cn({
+                "mt-0 border-l border-l-gray-4 py-2 pl-4 text-left text-muted text-muted opacity-100 transition ease-in-out hover:opacity-50": true,
+                "text-bold text-gray-12": activeHeading === heading.id,
+                "ml-2": heading.level === "h2",
+                "ml-4": heading.level === "h3",
+                "border-l border-l-gray-12 ": activeHeading === heading.id,
+              })}
               data-active={activeHeading === heading.id ? "true" : "false"}
             >
               {heading.text}

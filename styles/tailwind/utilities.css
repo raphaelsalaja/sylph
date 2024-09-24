@@ -1,6 +1,0 @@
-/* 
- * The utilities layer is for small, single-purpose classes that should always take precedence over any other styles.
- * @see: https://tailwindcss.com/docs/adding-custom-styles
-*/
-
-@tailwind utilities;

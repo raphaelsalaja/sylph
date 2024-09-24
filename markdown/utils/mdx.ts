@@ -1,4 +1,4 @@
-import type { Metadata } from "@/markdown/types";
+import type { Metadata } from "@/markdown/types/metadata";
 
 import fs from "node:fs";
 import path from "node:path";

@@ -1,6 +1,7 @@
 import * as Theme from "@/components/theme";
 
 import "@/styles/main.css";
+import "@/styles/shiki.css";
 
 import type { Metadata } from "next";
 
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body>
         <ViewTransitions>
           <Theme.Provider>
-            <main className="mx-auto max-w-[692px] overflow-x-hidden px-6 py-12 antialiased sm:py-32 md:overflow-x-visible md:py-16">
+            <main className="mx-auto max-w-screen-md overflow-x-hidden px-6 py-24 md:overflow-x-visible ">
               <article className="article">{children}</article>
             </main>
           </Theme.Provider>

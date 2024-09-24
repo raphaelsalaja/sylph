@@ -1,5 +1,265 @@
-@import url("@/styles/plugins/radix.css");
-@import url("@/styles/tailwind/base.css");
-@import url("@/styles/tailwind/components.css");
-@import url("@/styles/tailwind/utilities.css");
-@import url("@/styles/plugins/shiki.css");
+/* 
+ * We are using Radix Colors to provide a set of colors that can be used in the project.
+ * Radix Colors provides the colors bundled as raw CSS files. 
+ * You can import them directly in your files when using a bundler, such as Parcel or Webpack.
+ * @see: https://www.radix-ui.com/colors/docs/overview/usage
+*/
+
+/* gray */
+
+@import url("@radix-ui/colors/gray.css");
+@import url("@radix-ui/colors/gray-alpha.css");
+@import url("@radix-ui/colors/gray-dark.css");
+@import url("@radix-ui/colors/gray-dark-alpha.css");
+
+/* lime */
+
+@import url("@radix-ui/colors/lime.css");
+@import url("@radix-ui/colors/lime-alpha.css");
+@import url("@radix-ui/colors/lime-dark.css");
+@import url("@radix-ui/colors/lime-dark-alpha.css");
+
+/* yellow */
+
+@import url("@radix-ui/colors/yellow.css");
+@import url("@radix-ui/colors/yellow-alpha.css");
+@import url("@radix-ui/colors/yellow-dark.css");
+@import url("@radix-ui/colors/yellow-dark-alpha.css");
+
+/* overlays */
+
+@import url("@radix-ui/colors/black-alpha.css");
+@import url("@radix-ui/colors/white-alpha.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: var(--gray-1);
+    --fg: var(--gray-12);
+    --muted: var(--gray-8);
+    --border: var(--gray-4);
+    --scrollbar-thumb: var(--gray-4);
+    --scrollbar-track: transparent;
+    --selection-background: var(--lime-3);
+    --selection-foreground: var(--lime-11);
+    --kbd-background: var(--gray-3);
+    --kbd-foreground: var(--gray-11);
+    --kbd-border: var(--gray-4);
+    --highlight-background: var(--yellow-3);
+    --highlight-foreground: var(--yellow-11);
+    --radius-small: 4px;
+    --radius-base: 8px;
+  }
+
+  *::selection {
+    color: var(--selection-foreground);
+    background-color: var(--selection-background);
+  }
+
+  * {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  * {
+    text-wrap: pretty;
+  }
+
+  html {
+    @apply text-default text-foreground bg-background;
+
+    h1 {
+      @apply font-medium;
+    }
+
+    h2,
+    h3,
+    sub,
+    sup {
+      @apply text-muted;
+    }
+
+    sub,
+    kbd {
+      @apply text-small;
+    }
+
+    a {
+      @apply transition-opacity hover:opacity-50;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    kbd {
+      @apply relative top-[-1px];
+      @apply min-w-4 min-h-4 px-2 mx-1;
+      @apply border border-gray-4 rounded-small;
+      @apply inline-flex items-center justify-center;
+      @apply text-kbd-foreground bg-kbd-background border-kbd-border;
+    }
+  }
+}
+
+@layer components {
+  nav {
+    color: var(--muted);
+    transition: color 0.2s ease;
+
+    .return {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding-top: 4px;
+
+      :hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 256px;
+    padding: 48px;
+    margin-top: 4px;
+    border-color: var(--border);
+    border-width: 1px;
+    border-radius: var(--radius);
+
+    &[data-with-codeblock="true"] {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      & + figure {
+        margin-top: 0;
+        border-top-width: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+
+  .article {
+    .flex > *,
+    h1 + h2 {
+      margin-top: 0 !important;
+    }
+
+    h1 + p,
+    h2 + p {
+      margin-top: 8px !important;
+    }
+
+    figure + h1,
+    p + h1 {
+      margin-top: 48px !important;
+    }
+
+    *:not(:first-child, kbd) {
+      margin-top: 24px;
+    }
+  }
+
+  .bg-hover {
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    height: fit-content;
+    padding: 4px;
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background-color: var(--gray-a2);
+      border-radius: 0.25rem;
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: scale(0.5);
+    }
+
+    &:hover::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .footnotes {
+    position: relative;
+    padding-top: 16px;
+    margin-top: 64px !important;
+    border-top: 1px solid var(--border);
+  }
+
+  .footnotes ol {
+    position: relative;
+    display: block;
+    padding: 0 0 0 4px;
+    margin-top: 16px !important;
+    list-style: none;
+  }
+
+  .footnotes li {
+    margin-top: 0 !important;
+  }
+
+  .footnotes ol li {
+    position: relative;
+    padding-top: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+    color: var(--muted);
+    counter-increment: list;
+  }
+
+  .footnotes ol li::before {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    font-size: 8px;
+    content: counter(list);
+  }
+
+  .footnotes ol li p a {
+    z-index: 2;
+  }
+
+  .footnotes .footnote-backref {
+    cursor: pointer;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    a {
+      color: var(--gray-9) !important;
+    }
+  }
+
+  .footnote-superscript {
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 2px;
+    cursor: pointer;
+  }
+}

@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+import plugin from "tailwindcss/plugin";
+
 const config: Config = {
   important: true,
   content: [
@@ -116,9 +118,37 @@ const config: Config = {
           background: "var(--selection-background)",
           foreground: "var(--selection-foreground)",
         },
+        highlight: {
+          background: "var(--highlight-background)",
+          foreground: "var(--highlight-foreground)",
+        },
+        kbd: {
+          background: "var(--kbd-background)",
+          foreground: "var(--kbd-foreground)",
+          border: "var(--kbd-border)",
+        },
+      },
+      borderRadius: {
+        small: "var(--radius-small)",
+        base: "var(--radius-base)",
       },
     },
   },
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        ".text-small": {
+          fontSize: "12px",
+          letterSpacing: "0.01px",
+        },
+        ".text-default": {
+          fontSize: "14px",
+          lineHeight: "21px",
+          letterSpacing: "-0.09px",
+        },
+      });
+    }),
+  ],
   darkMode: "class",
 };
 

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
-import { TableOfContents } from "@/components/table-of-contents";
+import { TableOfContents } from "@/components/on-this-page";
+import { Return } from "@/components/return";
 import { getData } from "@/markdown/utils/mdx";
 import { MDX } from "@/mdx-components";
 
@@ -33,6 +34,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <h2>{formatter.format(new Date(post.time.created))}</h2>
       <MDX source={post.content} />
       <Footer posts={posts} />
+      <Return />
       <TableOfContents />
     </React.Fragment>
   );

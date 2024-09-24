@@ -152,6 +152,9 @@ importers:
       stylelint-order:
         specifier: ^6.0.4
         version: 6.0.4(stylelint@16.9.0(typescript@5.6.2))
+      tailwind-scrollbar:
+        specifier: ^3.1.0
+        version: 3.1.0(tailwindcss@3.4.13)
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
@@ -5631,6 +5634,15 @@ packages:
         integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==,
       }
 
+  tailwind-scrollbar@3.1.0:
+    resolution:
+      {
+        integrity: sha512-pmrtDIZeHyu2idTejfV59SbaJyvp1VRjYxAjZBH0jnyrPRo6HL1kD5Glz8VPagasqr6oAx6M05+Tuw429Z8jxg==,
+      }
+    engines: { node: ">=12.13.0" }
+    peerDependencies:
+      tailwindcss: 3.x
+
   tailwindcss-radix-colors@1.4.1:
     resolution:
       {
@@ -10004,6 +10016,10 @@ snapshots:
       - encoding
 
   tailwind-merge@2.5.2: {}
+
+  tailwind-scrollbar@3.1.0(tailwindcss@3.4.13):
+    dependencies:
+      tailwindcss: 3.4.13
 
   tailwindcss-radix-colors@1.4.1(tailwindcss@3.4.13):
     dependencies:
