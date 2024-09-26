@@ -1,6 +1,6 @@
 import type { Post } from "@/types";
 
-import { Footer } from "@/components/footer";
+import { Footer } from "@/app/(posts)/components/footer";
 import { TableOfContents } from "@/components/on-this-page";
 import { getPosts } from "@/lib/mdx";
 import { MDX } from "@/mdx-components";

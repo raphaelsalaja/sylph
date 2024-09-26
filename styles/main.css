@@ -1,33 +1,15 @@
-/* 
- * We are using Radix Colors to provide a set of colors that can be used in the project.
- * Radix Colors provides the colors bundled as raw CSS files. 
- * You can import them directly in your files when using a bundler, such as Parcel or Webpack.
- * @see: https://www.radix-ui.com/colors/docs/overview/usage
-*/
-
-/* gray */
-
 @import url("@radix-ui/colors/gray.css");
 @import url("@radix-ui/colors/gray-alpha.css");
 @import url("@radix-ui/colors/gray-dark.css");
 @import url("@radix-ui/colors/gray-dark-alpha.css");
-
-/* lime */
-
 @import url("@radix-ui/colors/lime.css");
 @import url("@radix-ui/colors/lime-alpha.css");
 @import url("@radix-ui/colors/lime-dark.css");
 @import url("@radix-ui/colors/lime-dark-alpha.css");
-
-/* yellow */
-
 @import url("@radix-ui/colors/yellow.css");
 @import url("@radix-ui/colors/yellow-alpha.css");
 @import url("@radix-ui/colors/yellow-dark.css");
 @import url("@radix-ui/colors/yellow-dark-alpha.css");
-
-/* overlays */
-
 @import url("@radix-ui/colors/black-alpha.css");
 @import url("@radix-ui/colors/white-alpha.css");
 
@@ -111,66 +93,87 @@
   }
 }
 
-@layer components {
-  nav {
-    color: var(--muted);
-    transition: color 0.2s ease;
+/* 
+ * We are using rehypye-pretty to style the code blocks in the project.
+ * rehype-pretty-code is a Rehype plugin powered by the shiki syntax highlighter that provides beautiful code blocks for Markdown or MDX. 
+ * It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
+ * @see: https://rehype-pretty.pages.dev/
+*/
 
-    .return {
-      display: flex;
-      gap: 4px;
-      align-items: center;
-      padding-top: 4px;
+/* 
+ * Here we are setting up the styles needed to enable theme-aware code blocks.
+ * @see: https://rehype-pretty.pages.dev/#multiple-themes-dark-and-light-mode
+*/
 
-      :hover {
-        opacity: 0.5;
-      }
-    }
+html {
+  code[data-theme*=" "],
+  code[data-theme*=" "] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
   }
 
-  .article {
-    .flex > *,
-    h1 + h2 {
+  &.dark {
+    code[data-theme*=" "],
+    code[data-theme*=" "] span {
+      color: var(--shiki-dark);
+      background-color: var(--shiki-dark-bg);
+    }
+  }
+}
+
+/* 
+ * Here we are setting up the styles needed to enable line numbers in code blocks.
+ * @see: https://rehype-pretty.pages.dev/#line-numbers
+*/
+
+html {
+  code[data-line-numbers] {
+    counter-reset: line;
+  }
+
+  code[data-line-numbers] > [data-line]::before {
+    display: inline-block;
+    width: 12px;
+    margin-right: 2rem;
+    color: gray;
+    text-align: right;
+    content: counter(line);
+    counter-increment: line;
+  }
+
+  code[data-line-numbers-max-digits="2"] > [data-line]::before {
+    width: 1.25rem;
+  }
+
+  code[data-line-numbers-max-digits="3"] > [data-line]::before {
+    width: 1.75rem;
+  }
+
+  code[data-line-numbers-max-digits="4"] > [data-line]::before {
+    width: 2.25rem;
+  }
+}
+
+/* 
+ * Here we are just some additional styles to make the code blocks look better.
+ * @see: https://rehype-pretty.pages.dev/#styles
+*/
+
+* {
+  pre {
+    padding: 16px;
+    overflow-x: auto;
+    font-size: 12px;
+
+    [data-line] {
       margin-top: 0 !important;
     }
-
-    h1 + p,
-    h2 + p {
-      margin-top: 8px !important;
-    }
-
-    figure + h1,
-    p + h1 {
-      margin-top: 48px !important;
-    }
-
-    *:not(:first-child, kbd) {
-      margin-top: 24px;
-    }
   }
 
-  .bg-hover {
-    position: relative;
-    z-index: 1;
-    width: fit-content;
-    height: fit-content;
-    padding: 4px;
-
-    &::before {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      background-color: var(--gray-a2);
-      border-radius: 0.25rem;
-      opacity: 0;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      transform: scale(0.5);
-    }
-
-    &:hover::before {
-      opacity: 1;
-      transform: scale(1);
-    }
+  figure {
+    width: 100%;
+    margin-top: 4px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-base);
   }
 }
