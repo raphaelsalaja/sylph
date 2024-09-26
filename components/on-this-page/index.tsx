@@ -2,13 +2,14 @@
 
 import { cn } from "@/lib/cn";
 
+import { motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
 import "@/components/on-this-page/styles.css";
 
 export const TableOfContents = () => {
   const [headings, setHeadings] = useState<{ id: string; text: string; level: string }[]>([]);
-  const [activeHeading, setActiveHeading] = useState<string>("");
+  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(new Set());
 
   const getHeadings = useCallback(() => {
     return Array.from(document.querySelectorAll("h1, h2, h3"))
@@ -25,27 +26,38 @@ export const TableOfContents = () => {
     const collectedHeadings = getHeadings();
     setHeadings(collectedHeadings);
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150;
-      const currentHeading = collectedHeadings.reduce((prev, current) => {
-        return Math.abs(current.top - scrollPosition) < Math.abs(prev.top - scrollPosition) ? current : prev;
-      });
-
-      setActiveHeading(currentHeading.id);
-
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
-        setActiveHeading(collectedHeadings[collectedHeadings.length - 1].id);
-        return;
-      }
+    const observerOptions = {
+      root: null,
+      threshold: 0,
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      const visibleSet = new Set(visibleHeadings);
+
+      for (const entry of entries) {
+        const headingId = entry.target.id;
+
+        if (entry.isIntersecting) {
+          visibleSet.add(headingId);
+        } else {
+          visibleSet.delete(headingId);
+        }
+      }
+
+      setVisibleHeadings(new Set(visibleSet));
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    for (const heading of collectedHeadings) {
+      const element = document.getElementById(heading.id);
+      if (element) observer.observe(element);
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
-  }, [getHeadings]);
+  }, [getHeadings, visibleHeadings]);
 
   const scroll = (id: string) => {
     for (const heading of Array.from(document.querySelectorAll("h1, h2, h3"))) {
@@ -55,23 +67,11 @@ export const TableOfContents = () => {
     const element = document.getElementById(id);
 
     if (element) {
-      if (id === headings[0].id) {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      } else if (id === headings[headings.length - 1].id) {
-        window.scrollTo({
-          top: document.documentElement.scrollHeight,
-          behavior: "smooth",
-        });
-      } else {
-        const top = element.offsetTop - 100;
-        window.scrollTo({
-          top: top,
-          behavior: "smooth",
-        });
-      }
+      const top = element.offsetTop - 100;
+      window.scrollTo({
+        top: top,
+        behavior: "smooth",
+      });
 
       element.setAttribute("data-highlight", "true");
 
@@ -82,27 +82,40 @@ export const TableOfContents = () => {
   };
 
   return (
-    <nav className="fixed top-[6rem] right-[6rem] mt-0 hidden h-full w-64 justify-start space-y-4 transition lg:block">
-      <div className="mt-0 flex flex-col gap-0">
-        {headings.map((heading) => (
-          <div key={heading.id} className="mt-0 ">
-            <button
-              type="button"
-              onClick={() => scroll(heading.id)}
-              className={cn({
-                "mt-0 border-l border-l-gray-4 py-2 pl-4 text-left text-muted text-muted opacity-100 transition ease-in-out hover:opacity-50": true,
-                "text-bold text-gray-12": activeHeading === heading.id,
-                "ml-2": heading.level === "h2",
-                "ml-4": heading.level === "h3",
-                "border-l border-l-gray-12 ": activeHeading === heading.id,
-              })}
-              data-active={activeHeading === heading.id ? "true" : "false"}
-            >
-              {heading.text}
-            </button>
-          </div>
-        ))}
-      </div>
-    </nav>
+    <>
+      <motion.nav
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        className={cn(
+          "top-[10rem] right-auto left-[2rem] hidden",
+          "xl:top-[6rem] xl:right-[6rem] xl:left-auto xl:block",
+          "fixed mt-0 h-full w-48 justify-start space-y-4 transition",
+        )}
+      >
+        <div className="mt-0 flex flex-col gap-0">
+          {headings.map((heading) => (
+            <div key={heading.id} className="mt-0">
+              <button
+                type="button"
+                onClick={() => scroll(heading.id)}
+                className={cn({
+                  "mt-0 ml-2 border-l border-l-gray-4 py-1 text-left text-muted opacity-100 transition ease-in-out hover:opacity-50": true,
+                  "text-bold text-gray-12": visibleHeadings.has(heading.id),
+                  "pl-4": heading.level === "h1",
+                  "pl-6": heading.level === "h2",
+                  "pl-7": heading.level === "h3",
+                  "border-l border-l-gray-12": visibleHeadings.has(heading.id),
+                })}
+                data-active={visibleHeadings.has(heading.id) ? "true" : "false"}
+              >
+                {heading.text}
+              </button>
+            </div>
+          ))}
+        </div>
+      </motion.nav>
+    </>
   );
 };

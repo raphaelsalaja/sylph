@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 import { ViewTransitions } from "next-view-transitions";
 
-import { OpenGraphMetadata } from "./metadata";
+import { OpenGraphMetadata } from "./open-graph-metadata";
 
 export const metadata: Metadata = {
   ...OpenGraphMetadata,

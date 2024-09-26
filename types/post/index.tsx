@@ -1,4 +1,4 @@
-export type Metadata = {
+export type Post = {
   title: string;
   slug: string;
   content: string;
@@ -36,7 +36,7 @@ export type Metadata = {
   related?: {
     media?: string[];
     links?: string[];
-    articles?: string[];
+    posts?: string[];
   };
 
   social?: {

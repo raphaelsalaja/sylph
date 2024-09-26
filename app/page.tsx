@@ -1,4 +1,4 @@
-import Home from "@/markdown/app/home";
+import Home from "@/screens/home";
 
 export default function Page() {
   return <Home />;

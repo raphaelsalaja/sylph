@@ -31,6 +31,9 @@ importers:
       "@rehype-pretty/transformers":
         specifier: ^0.13.2
         version: 0.13.2
+      "@tanstack/react-table":
+        specifier: ^8.20.5
+        version: 8.20.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       "@types/mdx":
         specifier: ^2.0.13
         version: 2.0.13
@@ -1466,6 +1469,23 @@ packages:
       }
     peerDependencies:
       tailwindcss: ">=3.0.0 || insiders || >=4.0.0-alpha.20"
+
+  "@tanstack/react-table@8.20.5":
+    resolution:
+      {
+        integrity: sha512-WEHopKw3znbUZ61s9i0+i9g8drmDo6asTWbrQh8Us63DAk/M0FkmIqERew6P71HI75ksZ2Pxyuf4vvKh9rAkiA==,
+      }
+    engines: { node: ">=12" }
+    peerDependencies:
+      react: ">=16.8"
+      react-dom: ">=16.8"
+
+  "@tanstack/table-core@8.20.5":
+    resolution:
+      {
+        integrity: sha512-P9dF7XbibHph2PFRz8gfBKEXEY/HJPOhym8CHmjF8y3q5mWpKx9xtZapXQUWCgkqvsK0R46Azuz+VaxD4Xl+Tg==,
+      }
+    engines: { node: ">=12" }
 
   "@trivago/prettier-plugin-sort-imports@4.3.0":
     resolution:
@@ -7013,6 +7033,14 @@ snapshots:
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.13
+
+  "@tanstack/react-table@8.20.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
+    dependencies:
+      "@tanstack/table-core": 8.20.5
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  "@tanstack/table-core@8.20.5": {}
 
   "@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.3.3)":
     dependencies:

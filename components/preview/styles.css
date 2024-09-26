@@ -1,0 +1,29 @@
+@tailwind components;
+
+@layer components {
+  .preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 256px;
+    padding: 48px;
+    margin-top: 4px;
+    border-color: var(--border);
+    border-width: 1px;
+    border-radius: var(--radius-base);
+
+    &[data-with-codeblock="true"] {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      & + figure {
+        margin-top: 0;
+        border-top-width: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}

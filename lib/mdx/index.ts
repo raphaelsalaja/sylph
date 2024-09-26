@@ -1,11 +1,11 @@
-import type { Metadata } from "@/markdown/types/metadata";
+import type { Post } from "@/types/post";
 
 import fs from "node:fs";
 import path from "node:path";
 
 import matter from "gray-matter";
 
-function readFile(filePath: string): Metadata | null {
+function readFile(filePath: string): Post | null {
   try {
     const rawContent = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(rawContent);
@@ -16,7 +16,7 @@ function readFile(filePath: string): Metadata | null {
       ...data,
       slug,
       content,
-    } as Metadata;
+    } as Post;
   } catch (error) {
     console.error(`Failed to read or parse the file at ${filePath}:`, error);
     return null;
@@ -32,7 +32,16 @@ function getFiles(dir: string): string[] {
   }
 }
 
-export function getData(directory: string): Metadata[] {
-  const mdxFiles = getFiles(directory);
-  return mdxFiles.map((file) => readFile(path.join(directory, file))).filter((metadata): metadata is Metadata => metadata !== null);
+export function getPosts(directory: string): Post[] {
+  const files = getFiles(
+    path.join(process.cwd(), "app", "(posts)", directory, "posts"),
+  );
+
+  return files
+    .map((file) =>
+      readFile(
+        path.join(process.cwd(), "app", "(posts)", directory, "posts", file),
+      ),
+    )
+    .filter((post): post is Post => post !== null);
 }

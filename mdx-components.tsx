@@ -4,6 +4,7 @@ import type { ImageProps } from "next/image";
 
 import Image from "@/components/image";
 import { Link } from "@/components/link";
+import { Preview } from "@/components/preview";
 import { cn } from "@/lib/cn";
 import { options } from "@/mdx-components-options";
 
@@ -20,18 +21,11 @@ const FootnoteForwardReference = dynamic(() => import("@/components/footnote/for
   ssr: false,
 });
 
-const custom: MDXComponents = {
-  Preview: ({ children, codeblock }) => (
-    <figure data-with-codeblock={codeblock} className="preview">
-      {children}
-    </figure>
-  ),
+const components: MDXComponents = {
+  Preview: ({ children, codeblock }) => <Preview codeblock={codeblock}>{children}</Preview>,
   Image: ({ caption, alt, ...props }: ImageProps & { caption?: string }) => {
     return <Image {...props} caption={caption} alt={alt} />;
   },
-};
-
-const html: MDXComponents = {
   h2: ({ id }: React.HTMLAttributes<HTMLHeadingElement>) => {
     if (id?.includes("footnote-label")) {
       return null;
@@ -113,16 +107,7 @@ const html: MDXComponents = {
 };
 
 export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{
-        ...html,
-        ...custom,
-      }}
-      options={options}
-    />
-  );
+  return <MDXRemote {...props} components={components} options={options} />;
 }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

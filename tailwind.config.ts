@@ -109,6 +109,7 @@ const config: Config = {
         background: "var(--bg)",
         foreground: "var(--fg)",
         muted: "var(--muted)",
+        hover: "var(--hover)",
         border: "var(--border)",
         scrollbar: {
           thumb: "var(--scrollbar-thumb)",

@@ -1,6 +1,6 @@
 "use client";
 
-import type { Metadata } from "@/markdown/types/metadata/index";
+import type { Metadata } from "@/types/post/index";
 
 import { usePathname } from "next/navigation";
 
@@ -23,7 +23,7 @@ function Footer({ posts }: FooterProps) {
   }
 
   return (
-    <div className="mt-16 flex w-full justify-between border-border-4 border-t pt-8">
+    <div className="mt-16 flex w-full justify-between border-border border-t pt-8">
       {previous && (
         <a href={`${previous.slug}`} className="flex flex-col gap-1 text-left">
           <span className="text-muted">Previous</span>
