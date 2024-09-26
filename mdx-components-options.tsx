@@ -18,7 +18,6 @@ export const options = {
           },
           keepBackground: false,
           defaultLang: "tsx",
-          filterMetaString: (string: string) => string.replace(/filename="[^"]*"/, ""),
         },
       ],
     ] as PluggableList,
