@@ -1,8 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import type { ImageProps } from "next/image";
 
-import Image from "@/components/image";
+import { MDXImage } from "@/components/image";
 import { Link } from "@/components/link";
 import { Preview } from "@/components/preview";
 import { cn } from "@/lib/cn";
@@ -23,9 +22,7 @@ const FootnoteForwardReference = dynamic(() => import("@/components/footnote/for
 
 const components: MDXComponents = {
   Preview: ({ children, codeblock }) => <Preview codeblock={codeblock}>{children}</Preview>,
-  Image: ({ caption, alt, ...props }: ImageProps & { caption?: string }) => {
-    return <Image {...props} caption={caption} alt={alt} />;
-  },
+  Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
   h2: ({ id }: React.HTMLAttributes<HTMLHeadingElement>) => {
     if (id?.includes("footnote-label")) {
       return null;
@@ -69,9 +66,9 @@ const components: MDXComponents = {
         </ol>
       );
     }
-    return <ol className={cn("list-decimal", className)} {...props} />;
+    return <ol className={cn("mt-2 ml-2 list-decimal", className)} {...props} />;
   },
-  ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => <ul className={cn("list-disc", className)} {...props} />,
+  ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => <ul className={cn("mt-2 ml-2 list-disc", className)} {...props} />,
   li: ({ className, children, ...props }: React.HTMLAttributes<HTMLLIElement>) => {
     if (props.id?.includes("user-content-fn-")) {
       return (
@@ -102,7 +99,7 @@ const components: MDXComponents = {
         </li>
       );
     }
-    return <li className={cn("list-item", className)}>{children}</li>;
+    return <li className={cn("mt-2 ml-2 list-item", className)}>{children}</li>;
   },
 };
 

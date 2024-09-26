@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 
 const route = "experiments";
 
-export const Posts = getPosts(route);
+const Posts = getPosts(route);
 
 export async function generateStaticParams() {
   return Posts.map((post) => ({

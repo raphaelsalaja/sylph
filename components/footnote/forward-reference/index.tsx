@@ -1,5 +1,7 @@
 "use client";
 
+import "@/components/footnote/styles.css";
+
 interface Props extends React.HTMLProps<HTMLDivElement> {
   href: string;
 }

@@ -22,6 +22,7 @@
         "except": ["after-declaration", "first-nested"]
       }
     ],
+    "no-descending-specificity": null,
     "no-duplicate-selectors": null,
     "order/order": ["at-rules", "custom-properties", "declarations", "rules"],
     "rule-empty-line-before": [
