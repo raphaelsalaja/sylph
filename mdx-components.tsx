@@ -1,16 +1,19 @@
 import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import type { PluggableList } from "unified";
 
 import { MDXImage } from "@/components/image";
 import { Link } from "@/components/link";
 import { Preview } from "@/components/preview";
 import { cn } from "@/lib/cn";
-import { options } from "@/mdx-components-options";
 
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import dynamic from "next/dynamic";
 import React from "react";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 const FootnoteBackReference = dynamic(() => import("@/components/footnote/back-reference"), {
   ssr: false,
@@ -103,12 +106,36 @@ const components: MDXComponents = {
   },
 };
 
-export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
-  return <MDXRemote {...props} components={components} options={options} />;
-}
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
   };
+}
+
+export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
+  return (
+    <MDXRemote
+      {...props}
+      components={components}
+      options={{
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+          rehypePlugins: [
+            rehypeSlug,
+            [
+              rehypePrettyCode,
+              {
+                theme: {
+                  dark: "github-dark",
+                  light: "github-light",
+                },
+                keepBackground: false,
+                defaultLang: "tsx",
+              },
+            ],
+          ] as PluggableList,
+        },
+      }}
+    />
+  );
 }
