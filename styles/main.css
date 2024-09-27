@@ -204,14 +204,14 @@
   */
 
   * {
-    pre [data-line] {
-      margin-top: 0 !important;
-    }
-
     pre {
       padding: 16px;
       overflow-x: auto;
       font-size: 12px;
+
+      [data-line] {
+        margin-top: 0 !important;
+      }
     }
 
     figure {
