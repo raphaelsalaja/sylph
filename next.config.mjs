@@ -2,8 +2,23 @@ import nextMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  cleanDistDir: true,
   reactStrictMode: true,
+  poweredByHeader: false,
+  pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
+  env: {
+    NEXT_TELEMETRY_DISABLED: "1",
+  },
+  experimental: {
+    turbo: {
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+    },
+  },
 };
 
 const withMDX = nextMDX({
