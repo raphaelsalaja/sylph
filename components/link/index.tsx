@@ -6,7 +6,7 @@ interface LinkProps extends React.HTMLProps<HTMLAnchorElement> {
   className?: string;
 }
 
-export const Link = ({ text, href, underline, className, children }: LinkProps) => {
+const Link = ({ text, href, underline, className, children }: LinkProps) => {
   return (
     <a
       target="_blank"

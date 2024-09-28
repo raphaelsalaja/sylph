@@ -11,7 +11,7 @@ interface MDXImageProps extends ImageProps {
   caption?: string;
 }
 
-export function MDXImage({ caption, alt, ...props }: MDXImageProps) {
+export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
   const [isImageLoading, setImageLoading] = React.useState(true);
   const href = props.src.toString();
 

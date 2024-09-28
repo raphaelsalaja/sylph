@@ -8,4 +8,4 @@ const Preview = ({ children, codeblock }: React.HTMLAttributes<HTMLDivElement> &
   </figure>
 );
 
-export { Preview };
+export default Preview;

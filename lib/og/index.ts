@@ -1,6 +1,6 @@
 import type { Metadata } from "next/types";
 
-export const OpenGraphMetadata: Metadata = {
+export const OpenGraph: Metadata = {
   title: {
     default: "Sylph",
     template: "%s",

@@ -6,7 +6,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   href: string;
 }
 
-export default function FootnoteBackReference({ href, children }: Props): JSX.Element {
+function FootnoteBackReference({ href, children }: Props): JSX.Element {
   const scroll = () => {
     const footnote = document.querySelector(`[id="${href.replace("ref", "")}"]`);
 
@@ -42,3 +42,5 @@ export default function FootnoteBackReference({ href, children }: Props): JSX.El
     </button>
   );
 }
+
+export default FootnoteBackReference;
