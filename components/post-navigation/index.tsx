@@ -4,11 +4,11 @@ import type { Post } from "@/types/post/index";
 
 import { usePathname } from "next/navigation";
 
-interface FooterProps {
+interface PostNavigationProps {
   posts: Array<Post>;
 }
 
-function Footer({ posts }: FooterProps) {
+function PostNavigation({ posts }: PostNavigationProps) {
   posts.sort((a, b) => {
     return new Date(b.time.created).getTime() - new Date(a.time.created).getTime();
   });
@@ -40,4 +40,4 @@ function Footer({ posts }: FooterProps) {
   );
 }
 
-export { Footer };
+export { PostNavigation };

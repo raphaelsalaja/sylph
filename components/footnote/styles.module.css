@@ -1,6 +1,4 @@
-@tailwind components;
 
-@layer components {
   .footnotes {
     position: relative;
     padding-top: 16px;
@@ -41,7 +39,7 @@
     z-index: 2;
   }
 
-  .footnotes .footnote-backref {
+ .footnote-back-reference {
     cursor: pointer;
 
     svg {
@@ -58,10 +56,10 @@
     }
   }
 
-  .footnote-superscript {
+  .footnote-forward-reference {
     display: inline-block;
     margin-right: 2px;
     margin-left: 2px;
     cursor: pointer;
   }
-}
+

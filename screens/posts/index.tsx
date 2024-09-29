@@ -1,6 +1,6 @@
 import type { Post } from "@/types";
 
-import { Footer } from "@/app/(posts)/components/footer";
+import { PostNavigation } from "@/components/post-navigation";
 import { TableOfContents } from "@/components/on-this-page";
 import { getPosts } from "@/lib/mdx";
 import { MDX } from "@/mdx-components";
@@ -26,7 +26,7 @@ export const Layout = ({ post, route }: Props) => {
       <h1>{post.title}</h1>
       <h2>{formatter.format(new Date(post.time.created))}</h2>
       <MDX source={post.content} />
-      <Footer posts={posts} />
+      <PostNavigation posts={posts} />
       <TableOfContents />
     </React.Fragment>
   );
