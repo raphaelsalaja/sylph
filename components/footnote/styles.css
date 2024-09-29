@@ -1,11 +1,8 @@
-
-
 .footnotes {
   position: relative;
   padding-top: 16px;
   margin-top: 64px !important;
   border-top: 1px solid var(--border);
-
 }
 
 .footnotes ol {
@@ -42,7 +39,7 @@
 }
 
 .footnote-back-reference {
-  text-align:left;
+  text-align: left;
   cursor: pointer;
 
   svg {
