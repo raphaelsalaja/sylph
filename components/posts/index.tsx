@@ -20,6 +20,10 @@ export const Posts = ({ category }: PostProps) => {
 
   const Seperator = () => <div className="border-border border-t" />;
 
+  if (posts.length === 0) {
+    return null;
+  }
+
   return (
     <div className="mt-6 flex flex-col">
       <NextViewTransition href={`/${category}`}>
