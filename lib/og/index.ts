@@ -1,38 +1,29 @@
 import type { Metadata } from "next/types";
 
 export const OpenGraph: Metadata = {
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : undefined,
   title: {
     default: "Sylph",
     template: "%s",
   },
   description: "...",
-  keywords: [
-    "Kendall Roy",
-    "Waystar Royco",
-    "Media Empire",
-    "Corporate Takeover",
-    "Leadership",
-    "Streaming",
-    "Digital Media",
-    "CEO",
-    "Succession",
-    "Power Moves",
-    "High-Stakes Strategy",
-  ],
+  keywords: ["Design", "Development", "Engineering"],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sylph.raphaelsalaja.com",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     title: "Sylph",
     description: "...",
-    images: ["https://sylph.raphaelsalaja.com/api/og"],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}api/og`],
     siteName: "Sylph",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sylph",
     description: "...",
-    images: ["https://sylph.raphaelsalaja.com/api/og"],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}api/og`],
     creator: "@raphaelsalaja",
   },
   robots: {

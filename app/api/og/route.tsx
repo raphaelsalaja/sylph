@@ -6,15 +6,29 @@ type Parameters = {
   title?: string;
 };
 
-const inter = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
-
+/*
+ * To assist with generating dynamic Open Graph (OG) images, you can use the Vercel @vercel/og library to compute and generate social card images using Vercel Edge Functions.
+ * @see: https://vercel.com/docs/functions/og-image-generation
+ *
+ * You can use the following code sample to explore using parameters and different content types with next/og.
+ * @see: https://vercel.com/guides/dynamic-text-as-image
+ *
+ * For this example we are going to generate a simple social card image with a dynamic title.
+ */
 export async function GET(request: Request) {
-  const [font] = await Promise.all([inter]);
-
   try {
+    /*
+     * Next we are going to extract the parameters from the request URL.
+     */
     const { searchParams } = new URL(request.url);
     const parameters: Parameters = Object.fromEntries(searchParams);
-    const title = searchParams.has("title");
+    const { title } = parameters;
+    console.log(parameters);
+
+    /*
+     * Finally we are fetching the font file from the public directory.
+     */
+    const inter = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
       <div
@@ -67,7 +81,7 @@ export async function GET(request: Request) {
         fonts: [
           {
             name: "Inter",
-            data: font,
+            data: await inter,
             weight: 500,
           },
         ],

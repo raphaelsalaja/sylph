@@ -1,6 +1,7 @@
 import type { Post } from "@/types";
 
 import { getPosts } from "@/lib/mdx";
+import { OpenGraph } from "@/lib/og";
 import { Layout } from "@/screens/posts";
 
 import { notFound } from "next/navigation";
@@ -9,14 +10,33 @@ const route = "thoughts";
 
 const Posts = getPosts(route);
 
+interface PageProps {
+  params: Post;
+}
+
 export async function generateStaticParams() {
   return Posts.map((post) => ({
     slug: `${post.slug}`,
   }));
 }
 
-interface PageProps {
-  params: Post;
+export function generateMetadata({ params }: PageProps) {
+  const post = Posts.find((post: { slug: string }) => post.slug === params.slug);
+  const title = post ? post.title : "";
+
+  const image = `${process.env.NEXT_PUBLIC_SITE_URL}/api/og?title=${encodeURIComponent(title)}`;
+
+  return {
+    ...OpenGraph,
+    title,
+    openGraph: {
+      title,
+      images: [image],
+    },
+    twitter: {
+      images: [image],
+    },
+  };
 }
 
 export default function Page({ params }: PageProps) {
