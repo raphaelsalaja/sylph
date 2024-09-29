@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/footnote/styles.module.css";
+import "@/components/footnote/styles.css";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
   href: string;
@@ -36,7 +36,7 @@ function FootnoteBackReference({ href, children }: Props): JSX.Element {
           scroll();
         }
       }}
-      className={styles.footnoteBackReference}
+      className="footnote-back-reference"
     >
       {children}
     </button>

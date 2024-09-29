@@ -1,7 +1,7 @@
 import type { Post } from "@/types";
 
-import { Layout } from "@/screens/posts";
 import { getPosts } from "@/lib/mdx";
+import { Layout } from "@/screens/posts";
 
 import { notFound } from "next/navigation";
 

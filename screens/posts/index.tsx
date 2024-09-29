@@ -1,7 +1,7 @@
 import type { Post } from "@/types";
 
-import { PostNavigation } from "@/components/post-navigation";
 import { TableOfContents } from "@/components/on-this-page";
+import { PostNavigation } from "@/components/post-navigation";
 import { getPosts } from "@/lib/mdx";
 import { MDX } from "@/mdx-components";
 

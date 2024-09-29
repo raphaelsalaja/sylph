@@ -2,7 +2,6 @@ import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { PluggableList } from "unified";
 
-import AppleWatch from "@/components/apple-watch";
 import FootnoteBackReference from "@/components/footnote/back-reference";
 import FootnoteForwardReference from "@/components/footnote/forward-reference";
 import MDXImage from "@/components/image";
@@ -10,7 +9,6 @@ import Link from "@/components/link";
 import Preview from "@/components/preview";
 import { cn } from "@/lib/cn";
 
-import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -18,7 +16,6 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 const components: MDXComponents = {
-  AppleWatch: () => <AppleWatch />,
   Preview: ({ children, codeblock }) => <Preview codeblock={codeblock ? codeblock : undefined}>{children}</Preview>,
   Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
   h2: ({ id }: React.HTMLAttributes<HTMLHeadingElement>) => {
@@ -33,7 +30,6 @@ const components: MDXComponents = {
     return (
       <Link href={href} className="inline-flex items-center gap-1 text-muted" underline>
         {children}
-        <ExternalLinkIcon />
       </Link>
     );
   },

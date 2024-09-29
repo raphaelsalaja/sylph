@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/footnote/styles.module.css";
+import "@/components/footnote/styles.css";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
   href: string;
@@ -32,7 +32,7 @@ function FootnoteForwardReference({ href, children }: Props): JSX.Element {
           scroll();
         }
       }}
-      className={styles.footnoteForwardReference}
+      className="footnote-forward-reference"
     >
       {children}
     </button>
