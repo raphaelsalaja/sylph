@@ -25,13 +25,14 @@ export const OpenGraph: Metadata = {
     url: "https://sylph.raphaelsalaja.com",
     title: "Sylph",
     description: "...",
+    images: ["https://sylph.raphaelsalaja.com/api/og"],
     siteName: "Sylph",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sylph",
     description: "...",
-    images: ["https://sylph.raphaelsalaja.com/api/og:image"],
+    images: ["https://sylph.raphaelsalaja.com/api/og"],
     creator: "@raphaelsalaja",
   },
   robots: {
