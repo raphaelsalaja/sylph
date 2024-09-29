@@ -54,6 +54,20 @@ const config: Config = {
           a11: "var(--black-a11)",
           a12: "var(--black-a12)",
         },
+        white: {
+          a1: "var(--white-a1)",
+          a2: "var(--white-a2)",
+          a3: "var(--white-a3)",
+          a4: "var(--white-a4)",
+          a5: "var(--white-a5)",
+          a6: "var(--white-a6)",
+          a7: "var(--white-a7)",
+          a8: "var(--white-a8)",
+          a9: "var(--white-a9)",
+          a10: "var(--white-a10)",
+          a11: "var(--white-a11)",
+          a12: "var(--white-a12)",
+        },
         pink: {
           1: "var(--pink-1)",
           2: "var(--pink-2)",
@@ -128,6 +142,10 @@ const config: Config = {
           foreground: "var(--kbd-foreground)",
           border: "var(--kbd-border)",
         },
+      },
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        apple: ["var(--font-apple)"],
       },
       borderRadius: {
         small: "var(--radius-small)",

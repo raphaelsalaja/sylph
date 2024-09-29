@@ -5,11 +5,18 @@ import type { Metadata } from "next";
 import * as Theme from "@/components/theme";
 import { OpenGraph } from "@/lib/og";
 
+import clsx from "clsx";
 import { ViewTransitions } from "next-view-transitions";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   ...OpenGraph,
 };
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -17,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
       <body>
         <ViewTransitions>
           <Theme.Provider>

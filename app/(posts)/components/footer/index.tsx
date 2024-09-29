@@ -25,7 +25,7 @@ function Footer({ posts }: FooterProps) {
   return (
     <div className="mt-16 flex w-full justify-between border-border border-t pt-8">
       {previous && (
-        <a href={`${previous.slug}`} className="flex flex-col gap-1 text-left">
+        <a href={`${previous.slug}`} className="flex w-full flex-col gap-1 text-left">
           <span className="text-muted">Previous</span>
           <span>{previous.title}</span>
         </a>

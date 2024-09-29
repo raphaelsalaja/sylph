@@ -2,6 +2,7 @@ import type { MDXComponents } from "mdx/types";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { PluggableList } from "unified";
 
+import AppleWatch from "@/components/apple-watch";
 import FootnoteBackReference from "@/components/footnote/back-reference";
 import FootnoteForwardReference from "@/components/footnote/forward-reference";
 import MDXImage from "@/components/image";
@@ -17,7 +18,8 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 const components: MDXComponents = {
-  Preview: ({ children, codeblock }) => <Preview codeblock={codeblock}>{children}</Preview>,
+  AppleWatch: () => <AppleWatch />,
+  Preview: ({ children, codeblock }) => <Preview codeblock={codeblock ? codeblock : undefined}>{children}</Preview>,
   Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
   h2: ({ id }: React.HTMLAttributes<HTMLHeadingElement>) => {
     if (id?.includes("footnote-label")) {
