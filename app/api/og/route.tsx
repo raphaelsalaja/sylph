@@ -1,5 +1,3 @@
-import type React from "react";
-
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -9,42 +7,6 @@ type Parameters = {
 };
 
 const inter = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
-
-const Logo = () => (
-  <div
-    style={{
-      backgroundImage: "linear-gradient(45deg, #BDEE63, #97be4d)",
-      height: 32,
-      width: 32,
-      borderRadius: 100,
-      marginBottom: 8,
-    }}
-  />
-);
-
-const Name = ({ children }: React.HTMLProps<HTMLDivElement>) => (
-  <div
-    style={{
-      color: "#202020",
-      fontWeight: 500,
-      height: 32,
-    }}
-  >
-    {children}
-  </div>
-);
-
-const Title = ({ children }: React.HTMLProps<HTMLDivElement>) => (
-  <div
-    style={{
-      color: "#838383",
-      fontWeight: 500,
-      height: 32,
-    }}
-  >
-    {children}
-  </div>
-);
 
 export async function GET(request: Request) {
   const [font] = await Promise.all([inter]);
@@ -60,24 +22,22 @@ export async function GET(request: Request) {
           display: "flex",
           height: "100%",
           width: "100%",
-          padding: 48,
+          padding: 64,
           backgroundColor: "#FCFCFC",
-          fontSize: 24,
+          fontSize: 32,
           justifyContent: "space-between",
-          letterSpacing: "-0.47px",
+          letterSpacing: "-0.69px",
           lineHeight: "24px",
         }}
       >
         <div
           style={{
-            display: "flex",
-            height: "32px",
-            alignItems: "center",
-            gap: 16,
+            color: "#202020",
+            fontWeight: 500,
+            height: 64,
           }}
         >
-          <Logo />
-          <Name>Sylph</Name>
+          Next.js Portfolio Starter
         </div>
 
         {title && (
@@ -89,7 +49,15 @@ export async function GET(request: Request) {
               gap: 8,
             }}
           >
-            <Title>{parameters.title}</Title>
+            <div
+              style={{
+                color: "#838383",
+                fontWeight: 500,
+                height: 32,
+              }}
+            >
+              {parameters.title}
+            </div>
           </div>
         )}
       </div>,
