@@ -1,8 +1,11 @@
+
+
 .footnotes {
   position: relative;
   padding-top: 16px;
   margin-top: 64px !important;
   border-top: 1px solid var(--border);
+
 }
 
 .footnotes ol {
@@ -20,7 +23,7 @@
 .footnotes ol li {
   position: relative;
   padding-top: 4px;
-  padding-left: 4px;
+  padding-left: 6px;
   font-size: 12px;
   color: var(--muted);
   counter-increment: list;
@@ -39,6 +42,7 @@
 }
 
 .footnote-back-reference {
+  text-align:left;
   cursor: pointer;
 
   svg {
