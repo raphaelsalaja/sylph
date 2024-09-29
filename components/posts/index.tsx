@@ -34,7 +34,7 @@ export const Posts = ({ category }: PostProps) => {
             <Seperator />
             <NextViewTransition href={`/${category}/${post.slug}`} className="flex w-full justify-between py-2">
               <p>{post.title}</p>
-              <p className="text-muted">{formatter.format(new Date(post.time.created))}</p>
+              <p className="mt-0 text-muted">{formatter.format(new Date(post.time.created))}</p>
             </NextViewTransition>
           </React.Fragment>
         );
