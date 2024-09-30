@@ -3,8 +3,12 @@ export type Post = {
   slug: string;
   content: string;
   tags?: string[];
-  author?: string;
   summary?: string;
+
+  author?: {
+    name?: string;
+    link?: string;
+  };
 
   time: {
     created: string;
@@ -48,6 +52,4 @@ export type Post = {
     pinterest?: string;
     others?: string[];
   };
-
-  status?: "draft" | "published" | "archived";
 };
