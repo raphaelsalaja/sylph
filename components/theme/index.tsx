@@ -1,8 +1,11 @@
 "use client";
 
 import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
 import { ThemeProvider, useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+
+import styles from "./styles.module.css";
 
 const Switch = () => {
   const [mounted, setMounted] = useState(false);
@@ -21,19 +24,19 @@ const Switch = () => {
       case "system":
         return (
           <React.Fragment>
-            System <DesktopIcon width={12} />
+            System <DesktopIcon width={14} />
           </React.Fragment>
         );
       case "dark":
         return (
           <React.Fragment>
-            Dark <MoonIcon width={12} />
+            Dark <MoonIcon width={14} />
           </React.Fragment>
         );
       case "light":
         return (
           <React.Fragment>
-            Light <SunIcon width={12} />
+            Light <SunIcon width={14} />
           </React.Fragment>
         );
       default:
@@ -42,13 +45,19 @@ const Switch = () => {
   };
 
   return (
-    <button
-      type="button"
-      className="flex items-center gap-1 bg-hover"
-      onClick={() => setTheme(theme === "system" ? "dark" : theme === "dark" ? "light" : "system")}
-    >
-      <Theme theme={theme || "system"} />
-    </button>
+    <motion.div layout>
+      <motion.button
+        key={theme}
+        type="button"
+        className={styles.switch}
+        onClick={() => setTheme(theme === "system" ? "dark" : theme === "dark" ? "light" : "system")}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Theme theme={theme || "system"} />
+      </motion.button>
+    </motion.div>
   );
 };
 

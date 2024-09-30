@@ -1,9 +1,12 @@
-.bg-hover {
+.switch {
   position: relative;
   z-index: 1;
+  display: flex;
+  gap: 4px;
+  align-items: center;
   width: fit-content;
   height: fit-content;
-  padding: 4px;
+  padding: 2px 4px;
 
   &::before {
     position: absolute;

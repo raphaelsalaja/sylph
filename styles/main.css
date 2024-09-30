@@ -42,6 +42,15 @@
     --radius-large: 12px;
   }
 
+  * {
+    --webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing: grayscale;
+
+    font-variant-ligatures: common-ligatures;
+    text-wrap: pretty;
+    text-rendering: optimizelegibility;
+  }
+
   *::selection {
     color: var(--selection-foreground);
     background-color: var(--selection-background);
@@ -52,10 +61,6 @@
     scrollbar-gutter: stable;
     scrollbar-width: thin;
     scroll-behavior: smooth;
-  }
-
-  * {
-    text-wrap: pretty;
   }
 
   html {
