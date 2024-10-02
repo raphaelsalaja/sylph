@@ -1,3 +1,4 @@
+import { formatter } from "@/lib/formatter";
 import { getPosts } from "@/lib/mdx";
 
 import { Link as NextViewTransition } from "next-view-transitions";
@@ -9,15 +10,7 @@ interface PostProps {
 
 export const Posts = ({ category }: PostProps) => {
   const posts = getPosts(category).sort((a, b) => {
-    return (
-      new Date(b.time.created).getTime() - new Date(a.time.created).getTime()
-    );
-  });
-
-  const formatter = new Intl.DateTimeFormat("en", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
+    return new Date(b.time.created).getTime() - new Date(a.time.created).getTime();
   });
 
   const Seperator = () => <div className="border-border border-t" />;
@@ -28,10 +21,7 @@ export const Posts = ({ category }: PostProps) => {
 
   return (
     <div className="mt-6 flex flex-col">
-      <NextViewTransition
-        href={`/${category}`}
-        className="flex justify-between"
-      >
+      <NextViewTransition href={`/${category}`} className="flex justify-between">
         <h2 className="py-2 text-muted capitalize">
           {category} {posts.length > 0 && `(${posts.length})`}
         </h2>
@@ -41,14 +31,9 @@ export const Posts = ({ category }: PostProps) => {
         return (
           <React.Fragment key={post.slug}>
             <Seperator />
-            <NextViewTransition
-              href={`/${category}/${post.slug}`}
-              className="flex w-full justify-between py-2"
-            >
+            <NextViewTransition href={`/${category}/${post.slug}`} className="flex w-full justify-between py-2">
               <p>{post.title}</p>
-              <p className="mt-0 text-muted">
-                {formatter.format(new Date(post.time.created))}
-              </p>
+              <p className="mt-0 text-muted">{formatter.date(new Date(post.time.created))}</p>
             </NextViewTransition>
           </React.Fragment>
         );

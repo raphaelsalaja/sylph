@@ -1,8 +1,8 @@
 import type { Post } from "@/types";
 
-import Link from "@/components/link";
 import { TableOfContents } from "@/components/on-this-page";
 import { PostNavigation } from "@/components/post-navigation";
+import { formatter } from "@/lib/formatter";
 import { getPosts } from "@/lib/mdx";
 import { MDX } from "@/mdx-components";
 
@@ -17,24 +17,41 @@ interface Props {
 export const Layout = ({ post, route }: Props) => {
   const posts = getPosts(route);
 
-  const formatter = new Intl.DateTimeFormat("en", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
-  });
+  const Seperator = () => {
+    return <div>⋅</div>;
+  };
+
+  const Author = () => {
+    return <div>@{post.author?.handle}</div>;
+  };
+
+  const PublishedTime = () => {
+    return <div>Published {formatter.date(new Date(post.time.created))}</div>;
+  };
+  const UpdateTime = () => {
+    return <div>Updated {formatter.date(new Date(post.time.updated))}</div>;
+  };
+
+  const ReadingTime = () => {
+    return <div>{readingTime(post.content).minutes} minutes read</div>;
+  };
 
   return (
     <React.Fragment>
-      <h1>{post.title}</h1>
-
-      <h2>{formatter.format(new Date(post.time.created))}</h2>
-      <p>{readingTime(post.content).text}</p>
-      <p>
-        By{" "}
-        <Link underline href={post.author?.link}>
-          {post.author?.name}
-        </Link>
-      </p>
+      <div className="flex flex-col">
+        <div>
+          <div>{post.title}</div>
+        </div>
+        <div className="mt-1 flex gap-2 text-muted text-small">
+          <Author />
+          <Seperator />
+          <PublishedTime />
+          <Seperator />
+          <UpdateTime />
+          <Seperator />
+          <ReadingTime />
+        </div>
+      </div>
 
       <MDX source={post.content} />
       <PostNavigation posts={posts} />

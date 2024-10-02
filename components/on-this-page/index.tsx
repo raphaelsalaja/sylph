@@ -3,7 +3,7 @@
 import { cn } from "@/lib/cn";
 
 import { motion } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import "@/components/on-this-page/styles.css";
 
@@ -82,7 +82,7 @@ export const TableOfContents = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <motion.nav
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -116,6 +116,6 @@ export const TableOfContents = () => {
           ))}
         </div>
       </motion.nav>
-    </>
+    </React.Fragment>
   );
 };

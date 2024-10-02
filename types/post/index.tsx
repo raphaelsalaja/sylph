@@ -8,6 +8,7 @@ export type Post = {
   author?: {
     name?: string;
     link?: string;
+    handle?: string;
   };
 
   time: {
