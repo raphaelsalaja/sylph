@@ -1,0 +1,228 @@
+---
+title: "Project Structure"
+order: 3
+author: 
+  name: "Raphael Salaja"
+  link: "https://twitter.com/raphaelsalaja"
+  handle: "raphaelsalaja"
+time:
+  created: "2024-09-30T14:11:11.816Z"
+  updated: "2024-10-03T21:16:04.124Z"
+---
+
+# Ease
+
+This project's structure is designed to make it extremely easy to add and manage content. We utilize Next.js route groups and MDX to organize our content, along with frontmatter for metadata.
+
+# Writing
+
+We organize our content using route groups. This means that when you create a new folder in the posts directory, it automatically creates a new route group for your content.
+
+# Adding a New Category
+
+To add a new category:
+
+1. Duplicate the guides Folder: Copy the existing guides folder inside the posts directory.
+2. Rename the Folder: Rename the duplicated folder to your desired category name.
+3. Add Content: Inside your new category folder, add your content files (usually .mdx files).
+
+This structure allows you to expand the site's content effortlessly without manual route configurations.
+
+For more information on routing in Next.js, refer to the [Next.js Routing Documentation](https://nextjs.org/docs/app/building-your-application/routing).
+
+# Components
+
+We use MDX to write our content, which allows us to include React components directly within our markdown files.
+
+# Adding a New Component
+
+To add a new component:
+
+1. Create the Component: Define your React component as you normally would.
+2. Register the Component: Add your component to the `mdx-components.tsx` file in the root of the project. This file maps component names to their implementations, making them available in your MDX files.
+
+For more details on using MDX with Next.js, see the [Next.js MDX Documentation](https://nextjs.org/docs/app/building-your-application/configuring/mdx#add-an-mdx-componentstsx-file).
+
+# Frontmatter
+
+We use frontmatter to add metadata to our markdown files. This metadata is crucial for categorization, and providing additional context about each post. We've defined an interface for the frontmatter in the `types` directory called `Post`.
+
+# The Post Interface
+
+Here's the `Post` interface for reference:
+
+```typescript
+export type Post = {
+  title: string;
+  slug: string;
+  content: string;
+  tags?: string[];
+  summary?: string;
+
+  author?: {
+    name?: string;
+    link?: string;
+    handle?: string;
+  };
+
+  time: {
+    created: string;
+    updated: string;
+  };
+
+  media?: {
+    image?: string;
+    video?: string;
+    audio?: string;
+  };
+
+  categorization?: {
+    readingTime?: string;
+  };
+
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+  };
+
+  audience?: {
+    likes?: number;
+    views?: number;
+    comments?: number;
+  };
+
+  related?: {
+    media?: string[];
+    links?: string[];
+    posts?: string[];
+  };
+
+  social?: {
+    twitter?: string;
+    facebook?: string;
+    linkedin?: string;
+    instagram?: string;
+    youtube?: string;
+    pinterest?: string;
+    others?: string[];
+  };
+};
+```
+
+# Using Frontmatter in Your Posts
+
+At the top of your .mdx files, include frontmatter enclosed within --- delimiters. Here's an example:
+
+```yaml
+---
+title: "Understanding Frontmatter in MDX"
+slug: "understanding-frontmatter"
+tags: ["MDX", "Frontmatter", "Next.js"]
+summary: "A brief guide on using frontmatter in MDX with Next.js."
+
+author:
+  name: "Your Name"
+  link: "https://yourwebsite.com"
+  handle: "yourhandle"
+
+time:
+  created: "2024-10-03T14:00:00.000Z"
+  updated: "2024-10-03T14:00:00.000Z"
+
+media:
+  image: "/images/cover.png"
+
+seo:
+  title: "Understanding Frontmatter in MDX"
+  description: "Learn how to use frontmatter in your MDX files with Next.js."
+  keywords: ["MDX", "Next.js", "Frontmatter", "Guide"]
+---
+```
+
+# Example of a Complete Frontmatter
+
+```yaml
+---
+title: "How to Use Frontmatter Effectively"
+slug: "frontmatter-usage"
+tags: ["Frontmatter", "MDX", "Tutorial"]
+summary: "Learn the ins and outs of using frontmatter in your MDX files."
+
+author:
+  name: "Jane Doe"
+  link: "https://janedoe.com"
+  handle: "janedoe"
+
+time:
+  created: "2024-09-30T14:11:11.816Z"
+  updated: "2024-10-03T20:13:13.811Z"
+
+media:
+  image: "/images/frontmatter-guide.png"
+
+categorization:
+  readingTime: "5 min"
+
+seo:
+  title: "Effective Frontmatter Usage in MDX"
+  description: "A comprehensive guide to using frontmatter in MDX for better content management."
+  keywords: ["MDX", "Frontmatter", "Content Management"]
+
+audience:
+  likes: 120
+  views: 2500
+  comments: 15
+
+related:
+  media: ["/images/related1.png", "/images/related2.png"]
+  links: ["https://externalresource.com"]
+  posts: ["another-post", "yet-another-post"]
+
+social:
+  twitter: "https://twitter.com/janedoe"
+  linkedin: "https://linkedin.com/in/janedoe"
+  others: ["https://mastodon.social/@janedoe"]
+---
+```
+
+# Automating MDX Timestamp Updates
+
+To streamline the management of timestamps in your MDX files, we have implemented a script called update-mdx-timestamps.js.
+This script runs automatically during the next build process and ensures that the created and updated timestamps in your MDX frontmatter are accurate and up-to-date.
+The script is designed to run automatically during the build process, but you can also run it manually if needed.
+
+# Running Manually
+
+```bash
+node scripts/update-mdx-timestamps.js
+```
+
+# Overriding the Created Timestamp
+
+By default, the script does not override the created timestamp if it already exists. To force the script to update the created timestamp for all files, use the --override-created flag:
+
+```bash
+node scripts/update-mdx-timestamps.js --override-created
+```
+
+# Integration with Build Process
+
+To ensure the script runs automatically, you can add it to the scripts section of your package.json:
+
+```json
+{
+  "scripts": {
+    "build": "node scripts/update-mdx-timestamps.js && next build"
+  }
+}
+```
+
+This way, every time you run npm run build, the script will execute before the Next.js build process begins.
+
+
+
+# Conclusion
+
+This project structure, combined with the use of MDX and frontmatter, provides a powerful and flexible way to manage content in your Next.js application. 
+Whether you're adding new categories, integrating custom components, or enhancing your posts with rich metadata, this setup is designed to scale with your needs.

@@ -81,8 +81,7 @@
       @apply text-small;
     }
 
-    a,
-    tr {
+    a {
       @apply transition hover:opacity-50;
     }
 

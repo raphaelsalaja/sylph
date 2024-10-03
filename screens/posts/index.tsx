@@ -21,10 +21,6 @@ export const Layout = ({ post, route }: Props) => {
     return <div>⋅</div>;
   };
 
-  const Author = () => {
-    return <div>@{post.author?.handle}</div>;
-  };
-
   const PublishedTime = () => {
     return <div>Published {formatter.date(new Date(post.time.created))}</div>;
   };
@@ -40,11 +36,9 @@ export const Layout = ({ post, route }: Props) => {
     <React.Fragment>
       <div className="flex flex-col">
         <div>
-          <div>{post.title}</div>
+          <h1>{post.title}</h1>
         </div>
         <div className="mt-1 flex gap-2 text-muted text-small">
-          <Author />
-          <Seperator />
           <PublishedTime />
           <Seperator />
           <UpdateTime />
