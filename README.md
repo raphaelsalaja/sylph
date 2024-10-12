@@ -4,7 +4,7 @@
 
 Built using **Next.js**, Sylph is optimized for performance and developer experience, providing flexibility and ease of use whether you're showcasing projects or writing content.
 
-### Features
+# Features
 
 - **Responsive Design**: Works seamlessly on all devices and browsers.
 - **MDX and Markdown Support**: Write posts using MDX or Markdown, with extensive flexibility.
@@ -19,6 +19,6 @@ Built using **Next.js**, Sylph is optimized for performance and developer experi
 - **Foundations for Expansion**: Built with flexibility in mind, allowing easy expansion and customization.
 - **Theming**: Easily extend or customize themes to suit your brand.
 
-### Documentation
+# Documentation
 
 To get started with Sylph, check out the [Guides](https://sylph.raphaelsalaja.com/guides).
