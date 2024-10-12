@@ -45,15 +45,18 @@ const Switch = () => {
   };
 
   return (
-    <motion.div layout>
+    <motion.div>
       <motion.button
         key={theme}
         type="button"
         className={styles.switch}
-        onClick={() => setTheme(theme === "system" ? "dark" : theme === "dark" ? "light" : "system")}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        onClick={() =>
+          setTheme(
+            theme === "system" ? "dark" : theme === "dark" ? "light" : "system",
+          )
+        }
+        layout="position"
+        layoutId="theme-switch"
       >
         <Theme theme={theme || "system"} />
       </motion.button>
@@ -63,7 +66,12 @@ const Switch = () => {
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
+    <ThemeProvider
+      enableSystem={true}
+      attribute="class"
+      storageKey="theme"
+      defaultTheme="system"
+    >
       {children}
     </ThemeProvider>
   );

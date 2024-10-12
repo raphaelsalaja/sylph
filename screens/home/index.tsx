@@ -20,7 +20,7 @@ export default function Home() {
         <Posts category="guides" />
       </FadeIn.Item>
       <FadeIn.Item>
-        <Posts category="explorations" />
+        <Posts category="examples" />
       </FadeIn.Item>
       <FadeIn.Item>
         <Posts category="thoughts" />
