@@ -1,4 +1,5 @@
-## Sylph
+![Sylph](.github/assets/readme.png)
+
 
 **Sylph** is a minimal and lightweight portfolio template designed for developers, designers, and creatives. It offers a clean, modern interface to showcase your work, share your ideas, and write blog posts. Sylph is fully responsive, ensuring your portfolio looks great on any device or browser.
 
