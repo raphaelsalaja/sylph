@@ -1,11 +1,10 @@
 "use client";
 
-import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/cn";
+
+import { Monitor, Moon, Sun } from "lucide-react";
 import { ThemeProvider, useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-
-import styles from "./styles.module.css";
 
 const Switch = () => {
   const [mounted, setMounted] = useState(false);
@@ -15,54 +14,53 @@ const Switch = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
-  const Theme = ({ theme }: { theme: string }) => {
-    switch (theme) {
-      case "system":
-        return (
-          <React.Fragment>
-            System <DesktopIcon width={14} />
-          </React.Fragment>
-        );
-      case "dark":
-        return (
-          <React.Fragment>
-            Dark <MoonIcon width={14} />
-          </React.Fragment>
-        );
-      case "light":
-        return (
-          <React.Fragment>
-            Light <SunIcon width={14} />
-          </React.Fragment>
-        );
-      default:
-        return "Unknown";
-    }
-  };
+  const buttons = [
+    { label: "dark", icon: <Moon width={13} />, active: theme === "dark" },
+    { label: "light", icon: <Sun width={13} />, active: theme === "light" },
+  ];
+
+  const common =
+    "flex items-center justify-center w-6 h-6 rounded transition-all hover:opacity-50";
 
   return (
-    <motion.div>
-      <motion.button
-        key={theme}
-        type="button"
-        className={styles.switch}
-        onClick={() => setTheme(theme === "system" ? "dark" : theme === "dark" ? "light" : "system")}
-        layout="position"
-        layoutId="theme-switch"
-      >
-        <Theme theme={theme || "system"} />
-      </motion.button>
-    </motion.div>
+    <div className="flex gap-2">
+      <span className="flex rounded-md w-fit bg-gray-2 border border-border overflow-hidden items-center">
+        <button
+          onClick={() => setTheme("system")}
+          className={cn(
+            common,
+            theme === "system" ? "bg-gray-4 text-foreground" : "",
+          )}
+        >
+          <Monitor width={13} />
+        </button>
+      </span>
+
+      <span className="flex rounded-md w-fit gap-0.5 bg-gray-2 border border-border overflow-hidden items-center">
+        {buttons.map(({ label, icon, active }) => (
+          <button
+            key={label}
+            onClick={() => setTheme(label)}
+            className={cn(common, active ? "bg-gray-4 text-foreground" : "")}
+          >
+            {icon}
+          </button>
+        ))}
+      </span>
+    </div>
   );
 };
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
+    <ThemeProvider
+      enableSystem={true}
+      attribute="class"
+      storageKey="theme"
+      defaultTheme="system"
+    >
       {children}
     </ThemeProvider>
   );

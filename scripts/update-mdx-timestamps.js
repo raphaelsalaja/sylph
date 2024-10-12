@@ -14,18 +14,39 @@ const updateTimestamps = (filePath, overrideCreated = false) => {
     const updated = fileStats.mtime.toISOString();
 
     if (overrideCreated || !frontmatter.includes("created:")) {
-      frontmatter = frontmatter.includes("created:")
-        ? frontmatter.replace(/created: ".*"/, `created: "${created}"`)
-        : `${frontmatter}\n  created: "${created}"`;
+      if (frontmatter.includes("created:")) {
+        frontmatter = frontmatter.replace(
+          /created: ".*"/,
+          `created: "${created}"`,
+        );
+      } else if (frontmatter.includes("time:")) {
+        frontmatter = frontmatter.replace(
+          /time:\n\s*created: ".*"/,
+          `time:\n  created: "${created}"`,
+        );
+      } else {
+        frontmatter += `\ntime:\n    created: "${created}"`;
+      }
     }
 
     if (frontmatter.includes("updated:")) {
-      frontmatter = frontmatter.replace(/updated: ".*"/, `updated: "${updated}"`);
+      frontmatter = frontmatter.replace(
+        /updated: ".*"/,
+        `updated: "${updated}"`,
+      );
+    } else if (frontmatter.includes("time:")) {
+      frontmatter = frontmatter.replace(
+        /time:\n\s*created: ".*"/,
+        `time:\n  created: "${created}"\n  updated: "${updated}"`,
+      );
     } else {
-      frontmatter += `\n  updated: "${updated}"`;
+      frontmatter += `\ntime:\n    updated: "${updated}"`;
     }
 
-    const newContent = mdxContent.replace(frontmatterRegex, `---\n${frontmatter}\n---`);
+    const newContent = mdxContent.replace(
+      frontmatterRegex,
+      `---\n${frontmatter}\n---`,
+    );
 
     fs.writeFileSync(filePath, newContent, "utf-8");
   }

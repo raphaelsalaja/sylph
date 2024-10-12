@@ -1,0 +1,122 @@
+---
+title: "Getting Started"
+author: 
+  name: "Raphael Salaja"
+  link: "https://twitter.com/raphaelsalaja"
+  handle: "raphaelsalaja"
+time:
+  created: "2024-10-12T20:54:05.150Z"
+  updated: "2024-10-12T21:03:43.148Z"
+---
+
+### Getting Started
+
+Follow these simple steps to get started:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+This will install the necessary dependencies and start the development server. Once the server is running, you can view your portfolio at `http://localhost:3000`.
+
+### Scripts
+
+The following scripts are available to help you manage development, build processes, and linting:
+
+**`build`**
+
+Runs the linting process, updates MDX file timestamps, and then builds the Next.js application for production. This ensures code quality and proper SEO metadata before deployment.
+
+```bash
+pnpm build
+```
+
+**`postbuild`**
+
+Automatically generates the sitemap after the build process completes. This script uses the `next-sitemap` package to create a `sitemap.xml` file for better SEO and discoverability.
+
+```bash
+pnpm postbuild
+```
+
+**`mdx:timestamps`**
+
+Runs a custom Node.js script that updates timestamps (`created` and `updated`) in your MDX files, automating the time management for blog posts.
+
+```bash
+pnpm mdx:timestamps
+```
+
+**`lint:style`**
+
+Runs `stylelint` on all CSS files to check and automatically fix any style issues. This ensures consistent and clean CSS code.
+
+```bash
+pnpm lint:style
+```
+
+**`lint:biome`**
+Runs the Biome linter to check and fix JavaScript/TypeScript code. This keeps your codebase clean and error-free.
+
+```bash
+pnpm lint:biome
+```
+
+**`lint:prettier`**
+
+Runs Prettier to format your code according to your project's style guide. This improves code readability and consistency.
+
+```bash
+pnpm lint:prettier
+```
+
+**`lint`**
+
+A combination of the style, Prettier, and Biome linting scripts, run together to ensure the entire codebase follows consistent style and format rules.
+
+```bash
+pnpm lint
+```
+
+### Colophon
+
+#### 3<sup>rd</sup> Party Libraries
+
+Sylph makes use of a variety of third-party libraries to enhance functionality, improve developer experience, and streamline styling and content management. Here's a breakdown of the key libraries used:
+
+#### **UI & Design**
+
+- **[@radix-ui](https://www.radix-ui.com/)**: Used for highly accessible and customizable components such as dialogs, dropdown menus, and icons. Radix UI’s unstyled primitives allow for full control over styling while ensuring accessibility.
+
+- **[Tailwind CSS](https://tailwindcss.com/)**: A utility-first CSS framework that enables rapid UI development and responsive design.
+
+- **[Framer Motion](https://www.framer.com/motion/)**: Provides smooth animations and transitions for interactive elements throughout the template.
+- **[Lucide](https://lucide.dev/)**: An icon library used for consistent, customizable iconography throughout the site.
+
+#### **Content & Markdown**
+
+- **[MDX](https://mdxjs.com/)**: Allows you to write Markdown with embedded React components for richer content.
+- **[Remark](https://remark.js.org/)** & **[Rehype](https://rehype.js.org/)**: Libraries used to parse and transform Markdown and HTML. This project uses them for processing MDX content and adding features like slugs and table of contents.
+- **[Gray-Matter](https://github.com/jonschlinkert/gray-matter)**: Parses frontmatter from Markdown and MDX files, helping manage metadata such as `created` and `updated` timestamps.
+
+#### **Development Tools**
+
+- **[Biome](https://biomejs.dev/)**: A powerful linter, formatter, and more, providing integrated checks for code quality.
+- **[Prettier](https://prettier.io/)**: Automatically formats your code for consistency and readability.
+
+- **[Stylelint](https://stylelint.io/)**: Enforces consistent and clean styling across your CSS codebase.
+- **[Next.js](https://nextjs.org/)**: A powerful React framework for server-side rendering and static site generation, optimized for performance and SEO.
+- **[Next-Sitemap](https://www.npmjs.com/package/next-sitemap)**: Automatically generates a `sitemap.xml` to improve search engine indexing.
+
+#### Typography
+
+- **[Inter](https://rsms.me/inter/)**: A modern sans-serif typeface designed for excellent readability and versatility. Inter is used for headings and body text throughout the site.
+
+### Contributions
+
+Feel free to fork this repository, submit issues, and make contributions! Whether you're adding new features or fixing bugs, your contributions are always welcome.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
