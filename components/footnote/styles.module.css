@@ -1,0 +1,24 @@
+.footnote-back-reference {
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.footnote-back-reference svg {
+  width: 12px;
+  height: 12px;
+}
+
+.footnote-back-reference a {
+  color: var(--gray-9) !important;
+}
+
+.footnote-forward-reference {
+  display: inline-block;
+  margin-right: 2px;
+  margin-left: 2px;
+  cursor: pointer;
+}

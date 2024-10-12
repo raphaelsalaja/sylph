@@ -139,6 +139,70 @@
     figure:not(:first-child) {
       margin-top: 24px;
     }
+
+    /*
+    * This handles our highlighting on selection of a table of contents item.
+    */
+
+    [data-highlight] {
+      @apply relative;
+    }
+
+    [data-highlight]::before {
+      @apply absolute inset-0 -inset-x-1 -z-10 bg-transparent transition scale-y-[1.1] content-[""] duration-500;
+    }
+
+    [data-highlight="true"]::before {
+      @apply bg-highlight-background text-highlight-foreground scale-y-110 !important;
+    }
+
+    [data-highlight="false"]::before {
+      @apply bg-transparent scale-y-100;
+    }
+
+    /* 
+    * Here we are setting up the styles for our footnotes and references.
+    */
+
+    .footnotes {
+      position: relative;
+      padding-top: 16px;
+      margin-top: 64px !important;
+      border-top: 1px solid var(--border);
+    }
+
+    .footnotes ol {
+      position: relative;
+      display: block;
+      padding: 0 0 0 4px;
+      margin-top: 16px !important;
+      list-style: none;
+    }
+
+    .footnotes li {
+      margin-top: 0 !important;
+    }
+
+    .footnotes ol li {
+      position: relative;
+      padding-top: 4px;
+      padding-left: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      counter-increment: list;
+    }
+
+    .footnotes ol li::before {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      font-size: 8px;
+      content: counter(list);
+    }
+
+    .footnotes ol li p a {
+      z-index: 2;
+    }
   }
 
   /* 

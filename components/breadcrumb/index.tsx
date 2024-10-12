@@ -1,13 +1,10 @@
 "use client";
 
+import { cn } from "@/lib/cn";
+
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
-
-import "@/components/breadcrumb/styles.css";
-
-import { cn } from "@/lib/cn";
-
 import React from "react";
 
 export const Breadcrumb = () => {

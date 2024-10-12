@@ -21,9 +21,7 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: PageProps) {
-  const post = Posts.find(
-    (post: { slug: string }) => post.slug === params.slug,
-  );
+  const post = Posts.find((post: { slug: string }) => post.slug === params.slug);
   const title = post ? post.title : "";
   const image = `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent(title)}`;
 
@@ -41,9 +39,7 @@ export function generateMetadata({ params }: PageProps) {
 }
 
 export default function Page({ params }: PageProps) {
-  const post = Posts.find(
-    (post: { slug: string }) => post.slug === params.slug,
-  );
+  const post = Posts.find((post: { slug: string }) => post.slug === params.slug);
 
   if (!post) {
     notFound();

@@ -50,11 +50,7 @@ const Switch = () => {
         key={theme}
         type="button"
         className={styles.switch}
-        onClick={() =>
-          setTheme(
-            theme === "system" ? "dark" : theme === "dark" ? "light" : "system",
-          )
-        }
+        onClick={() => setTheme(theme === "system" ? "dark" : theme === "dark" ? "light" : "system")}
         layout="position"
         layoutId="theme-switch"
       >
@@ -66,12 +62,7 @@ const Switch = () => {
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider
-      enableSystem={true}
-      attribute="class"
-      storageKey="theme"
-      defaultTheme="system"
-    >
+    <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
       {children}
     </ThemeProvider>
   );
