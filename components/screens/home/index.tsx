@@ -1,8 +1,8 @@
 import { Footer } from "@/components/footer";
 import * as FadeIn from "@/components/motion/staggers/fade";
 import { Posts } from "@/components/posts";
-import AboutMe from "@/screens/home/markdown/about-me.mdx";
-import Header from "@/screens/home/markdown/header.mdx";
+import AboutMe from "@/components/screens/home/markdown/about-me.mdx";
+import Header from "@/components/screens/home/markdown/header.mdx";
 
 const Spacer = () => <div style={{ marginTop: "24px" }} />;
 
