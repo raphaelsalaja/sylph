@@ -1,7 +1,9 @@
 import type { Metadata } from "next/types";
 
 export const OpenGraph: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : undefined,
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : undefined,
   title: {
     default: "Sylph",
     template: "%s",
@@ -14,14 +16,14 @@ export const OpenGraph: Metadata = {
     url: process.env.NEXT_PUBLIC_SITE_URL,
     title: "Sylph",
     description: "...",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}api/og`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/api/og`],
     siteName: "Sylph",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sylph",
     description: "...",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}api/og`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/api/og`],
     creator: "@raphaelsalaja",
   },
   robots: {
