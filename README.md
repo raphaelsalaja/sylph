@@ -21,4 +21,4 @@ Built using **Next.js**, Sylph is optimized for performance and developer experi
 
 # Documentation
 
-To get started with Sylph, check out the [Guides](https://sylph.raphaelsalaja.com/guides).
+To get started with Sylph, check out the [Guides](https://next-sylph-portfolio.vercel.app/guides).

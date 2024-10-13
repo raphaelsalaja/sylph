@@ -16,14 +16,14 @@ export const OpenGraph: Metadata = {
     url: process.env.NEXT_PUBLIC_SITE_URL,
     title: "Sylph",
     description: "...",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/api/og`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}api/og`],
     siteName: "Sylph",
   },
   twitter: {
     card: "summary_large_image",
     title: "Sylph",
     description: "...",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/api/og`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}api/og`],
     creator: "@raphaelsalaja",
   },
   robots: {
