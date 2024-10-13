@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://next-sylph-portfolio.vercel.app/guides</loc><lastmod>2024-10-12T22:42:14.211Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app/icon</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app/examples</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app/examples/component-showcase</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app/guides/basic-writing-and-formatting-syntax</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app/guides/getting-started</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://next-sylph-portfolio.vercel.app/guides/project-structure</loc><lastmod>2024-10-12T22:42:14.212Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/guides</loc><lastmod>2024-10-13T13:17:44.405Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/icon</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/examples</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/examples/component-showcase</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/guides/basic-writing-and-formatting-syntax</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/guides/getting-started</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://next-sylph-portfolio.vercel.app/guides/project-structure</loc><lastmod>2024-10-13T13:17:44.406Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

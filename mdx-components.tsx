@@ -31,10 +31,11 @@ const components: MDXComponents = {
   },
   Preview: ({ children, codeblock }) => <Preview codeblock={codeblock ? codeblock : undefined}>{children}</Preview>,
   Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
-  h2: ({ id }: React.HTMLAttributes<HTMLHeadingElement>) => {
+  h2: ({ children, id }: React.HTMLAttributes<HTMLHeadingElement>) => {
     if (id?.includes("footnote-label")) {
       return null;
     }
+    return <h2 id={id}>{children}</h2>;
   },
   a: ({ children, href }) => {
     if (href?.startsWith("#user-content-fn-")) {
