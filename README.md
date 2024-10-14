@@ -1,7 +1,17 @@
 <p align="center">
     <img src=".github/assets/readme.png">
-    <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+    <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph">
+        <img src=".github/assets/buttons/sponsor.png" alt="Sponsor" height="32">
+    </a>
+     <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph">
+        <img src=".github/assets/buttons/deploy.png" alt="Deploy" height="32">
+    </a>
+     <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph">
+        <img src=".github/assets/buttons/twitter.png" alt="Twitter" height="32">
+    </a>
 </p>
+
+
 
 A minimal and lightweight portfolio template designed for developers, designers, and creatives. It offers a clean, modern interface to showcase your work, share your ideas, and write blog posts. 
 Built using Next.js, Sylph is optimized for performance and developer experience, providing flexibility and ease of use whether you're showcasing projects or writing content.
