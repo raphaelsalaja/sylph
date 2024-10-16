@@ -15,7 +15,7 @@ export const Deploy = () => {
       }}
       animate={{
         opacity: 1,
-        bottom: 16,
+        bottom: 24,
         filter: "blur(0px)",
       }}
       exit={{
@@ -28,7 +28,7 @@ export const Deploy = () => {
         duration: 0.4,
         delay: 1,
       }}
-      className="-translate-x-1/2 fixed left-1/2 transform text-small "
+      className="-translate-x-1/2 fixed left-1/2 transform text-small"
     >
       <Link href={DeployLink}>
         <motion.div
@@ -41,9 +41,9 @@ export const Deploy = () => {
             ease: [0.19, 1, 0.22, 1],
             duration: 0.4,
           }}
-          className="flex cursor-pointer items-center gap-2 rounded-md border border-border bg-gray-2 px-2 py-1 "
+          className="flex cursor-pointer items-center gap-2 rounded-full border border-border bg-gray-1 px-3 py-1 shadow"
         >
-          <svg height="12" stroke-linejoin="round" viewBox="0 0 16 16" width="12">
+          <svg stroke-linejoin="round" viewBox="0 0 16 16" width="10" height="10">
             <title>Deploy Icon</title>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1L16 15H0L8 1Z" fill="currentColor" />
           </svg>
