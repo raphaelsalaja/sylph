@@ -28,7 +28,7 @@ export const Deploy = () => {
         duration: 0.4,
         delay: 1,
       }}
-      className="-translate-x-1/2 fixed  left-1/2 transform text-small "
+      className="-translate-x-1/2 fixed left-1/2 transform text-small "
     >
       <Link href={DeployLink}>
         <motion.div
@@ -43,19 +43,9 @@ export const Deploy = () => {
           }}
           className="flex cursor-pointer items-center gap-2 rounded-md border border-border bg-gray-2 px-2 py-1 "
         >
-          <svg
-            height="12"
-            stroke-linejoin="round"
-            viewBox="0 0 16 16"
-            width="12"
-          >
+          <svg height="12" stroke-linejoin="round" viewBox="0 0 16 16" width="12">
             <title>Deploy Icon</title>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M8 1L16 15H0L8 1Z"
-              fill="currentColor"
-            />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1L16 15H0L8 1Z" fill="currentColor" />
           </svg>
           Deploy With Vercel
         </motion.div>
