@@ -1,23 +1,23 @@
-<p align="center">
-    <img src=".github/assets/readme.png">
-    <a href="https://github.com/sponsors/raphaelsalaja">
-        <picture>
-            <img src="https://github.com/user-attachments/assets/e9754454-5f51-4166-8194-0f3ba1db82dc" alt="Sponsor" height="30">
-        </picture>
-    </a>
-    <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph">
-       <picture>
-           <img src="https://github.com/user-attachments/assets/7ea626bf-b827-4995-b0d0-6eea0c0ba2d5" alt="Deploy" height="30">
-       </picture>
-    </a>
-    <a href="https://x.com/raphaelsalaja">
-        <picture>
-            <img src="https://github.com/user-attachments/assets/8d599ebf-b73e-4c05-8297-867b5846b7c4" alt="Twitter" height="30">
-        </picture>
-    </a>
-</p>
+<a href="https://github.com/sponsors/raphaelsalaja">
+    <picture>
+        <img src="https://github.com/user-attachments/assets/e9754454-5f51-4166-8194-0f3ba1db82dc" alt="Sponsor" height="30">
+    </picture>
+</a>
+<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph">
+    <picture>
+        <img src="https://github.com/user-attachments/assets/7ea626bf-b827-4995-b0d0-6eea0c0ba2d5" alt="Deploy" height="30">
+    </picture>
+</a>
+<a href="https://x.com/raphaelsalaja">
+    <picture>
+        <img src="https://github.com/user-attachments/assets/8d599ebf-b73e-4c05-8297-867b5846b7c4" alt="Twitter" height="30">
+    </picture>
+</a>
+
+<img src=".github/assets/readme.png">
 
 A minimal and lightweight portfolio template designed for developers, designers, and creatives. It offers a clean, modern interface to showcase your work, share your ideas, and write blog posts.
+
 Built using Next.js, Sylph is optimized for performance and developer experience, providing flexibility and ease of use whether you're showcasing projects or writing content.
 
 ## Features
