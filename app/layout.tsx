@@ -2,6 +2,7 @@ import "@/styles/main.css";
 
 import type { Metadata } from "next";
 
+import { Deploy } from "@/components/deploy";
 import * as Theme from "@/components/theme";
 import { OpenGraph } from "@/lib/og";
 
@@ -29,7 +30,10 @@ export default function RootLayout({
         <ViewTransitions>
           <Theme.Provider>
             <main className="mx-auto max-w-screen-sm overflow-x-hidden px-6 py-24 md:overflow-x-visible ">
-              <article className="article">{children}</article>
+              <article className="article">
+                {children}
+                <Deploy />
+              </article>
             </main>
           </Theme.Provider>
         </ViewTransitions>

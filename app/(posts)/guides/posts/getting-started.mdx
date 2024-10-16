@@ -20,6 +20,20 @@ pnpm dev
 
 This will install the necessary dependencies and start the development server. Once the server is running, you can view your portfolio at `http://localhost:3000`.
 
+# Environment Variables
+
+The following environment variables are required to run the application:
+
+- `NEXT_PUBLIC_SITE_URL`: The URL of your website.
+
+Run the following command to create a `.env.local` file and add the required environment variables:
+
+```bash
+vercel env pull
+```
+
+Then, update the values in the `.env.local` file with your own values.
+
 # Scripts
 
 The following scripts are available to help you manage development, build processes, and linting:

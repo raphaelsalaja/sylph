@@ -29,15 +29,15 @@ const Switch = () => {
   ];
 
   return (
-    <span className="flex w-fit items-center gap-0.5 overflow-hidden rounded-[6px] p-[2px] bg-gray-2">
+    <span className="flex w-fit items-center gap-0.5 overflow-hidden rounded-[6px] bg-gray-2 p-[2px]">
       {buttons.map(({ label, icon, active }) => (
         <button
           type="button"
           key={label}
           onClick={() => setTheme(label)}
           className={cn(
-            "flex items-center justify-center w-6 h-6 rounded-[4px]  ransition-all hover:opacity-50",
-            active ? "bg-gray-4 shadow text-foreground" : "",
+            "ransition-all flex h-6 w-6 items-center justify-center rounded-[4px] hover:opacity-50",
+            active ? "bg-gray-4 text-foreground shadow" : "",
           )}
         >
           {icon}
@@ -49,12 +49,7 @@ const Switch = () => {
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider
-      enableSystem={true}
-      attribute="class"
-      storageKey="theme"
-      defaultTheme="system"
-    >
+    <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
       {children}
     </ThemeProvider>
   );
