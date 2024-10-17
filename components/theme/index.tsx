@@ -8,7 +8,7 @@ import { Monitor, Moon, Sun } from "lucide-react";
 import { ThemeProvider, useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const Switch = () => {
+export const AppThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -44,12 +44,14 @@ const Switch = () => {
   );
 };
 
-const Provider = ({ children }: { children: React.ReactNode }) => {
+export const AppThemeProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return (
     <ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
       {children}
     </ThemeProvider>
   );
 };
-
-export { Switch, Provider };

@@ -5,7 +5,7 @@ import { DeployLink } from "@/lib/deploy";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-export const Deploy = () => {
+export const DeployButton = () => {
   return (
     <motion.div
       initial={{
@@ -41,11 +41,11 @@ export const Deploy = () => {
             ease: [0.19, 1, 0.22, 1],
             duration: 0.4,
           }}
-          className="flex cursor-pointer items-center gap-2 rounded-full border border-border bg-gray-1 px-3 py-1"
+          className="flex cursor-pointer items-center gap-2 rounded-md border border-border bg-gray-2 px-2 py-1"
         >
-          <svg stroke-linejoin="round" viewBox="0 0 16 16" width="10" height="10">
+          <svg strokeLinejoin="round" viewBox="0 0 16 16" width="10" height="10">
             <title>Deploy Icon</title>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 1L16 15H0L8 1Z" fill="currentColor" />
+            <path fillRule="evenodd" clipRule="evenodd" d="M8 1L16 15H0L8 1Z" fill="currentColor" />
           </svg>
           Deploy With Vercel
         </motion.div>

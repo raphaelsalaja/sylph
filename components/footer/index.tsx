@@ -1,5 +1,5 @@
 import Link from "@/components/link";
-import * as Theme from "@/components/theme";
+import { AppThemeSwitcher } from "@/components/theme";
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         Built with <Link href="https://nextjs.org/" text="Next.js" underline />
       </div>
       <div className="text-muted text-small">
-        <Theme.Switch />
+        <AppThemeSwitcher />
       </div>
     </div>
   );
