@@ -41,7 +41,7 @@ export const Deploy = () => {
             ease: [0.19, 1, 0.22, 1],
             duration: 0.4,
           }}
-          className="flex cursor-pointer items-center gap-2 rounded-full border border-border bg-gray-1 px-3 py-1 shadow"
+          className="flex cursor-pointer items-center gap-2 rounded-full border border-border bg-gray-1 px-3 py-1"
         >
           <svg stroke-linejoin="round" viewBox="0 0 16 16" width="10" height="10">
             <title>Deploy Icon</title>
