@@ -1,3 +1,5 @@
+<p align="center">
+<img src=".github/assets/readme.png">
 <a href="https://github.com/sponsors/raphaelsalaja">
     <picture>
         <img src="https://github.com/user-attachments/assets/e9754454-5f51-4166-8194-0f3ba1db82dc" alt="Sponsor" height="30">
@@ -13,8 +15,9 @@
         <img src="https://github.com/user-attachments/assets/8d599ebf-b73e-4c05-8297-867b5846b7c4" alt="Twitter" height="30">
     </picture>
 </a>
+</p>
 
-<img src=".github/assets/readme.png">
+
 
 A minimal and lightweight portfolio template designed for developers, designers, and creatives. It offers a clean, modern interface to showcase your work, share your ideas, and write blog posts.
 

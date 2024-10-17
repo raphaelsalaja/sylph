@@ -28,61 +28,52 @@ export async function GET(request: Request) {
     /*
      * Finally we are fetching the font file from the public directory.
      */
-    const inter = fetch(new URL("/public/assets/inter/medium.ttf", import.meta.url)).then((res) => res.arrayBuffer());
+    const inter = fetch(new URL("/public/assets/inter/regular.ttf", import.meta.url)).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
       <div
         style={{
+          /* layout */
           display: "flex",
-          height: "100%",
           width: "100%",
-          padding: 64,
-          backgroundColor: "#FCFCFC",
-          fontSize: 32,
-          justifyContent: "space-between",
-          letterSpacing: "-0.69px",
-          lineHeight: "24px",
+          height: "100%",
+
+          /* box */
+          padding: "40px",
+
+          /* style */
+          fontSize: "24px",
+          letterSpacing: "-0.47px",
+          backgroundColor: "black",
         }}
       >
         <div
           style={{
-            color: "#202020",
-            fontWeight: 500,
-            height: 64,
+            display: "flex",
+            alignItems: "center",
+            height: "24px",
+            gap: 12,
           }}
         >
-          Next.js Portfolio Starter
+          <div style={{ color: "rgba(255, 255, 255, 0.92)" }}>next-sylph-portfolio</div>
+          {title && <div style={{ color: "rgba(255, 255, 255, 0.39)" }}>/</div>}
+          {title ? (
+            <div style={{ color: "rgba(255, 255, 255, 0.39)" }}>{title.toLowerCase()}</div>
+          ) : (
+            <svg width="16" viewBox="0 0 75 65" fill="white">
+              <path d="M37.59.25l36.95 64H.64l36.95-64z" />
+            </svg>
+          )}
         </div>
-
-        {title && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-              gap: 8,
-            }}
-          >
-            <div
-              style={{
-                color: "#838383",
-                fontWeight: 500,
-                height: 32,
-              }}
-            >
-              {parameters.title}
-            </div>
-          </div>
-        )}
       </div>,
       {
         width: 1200,
-        height: 630,
+        height: 600,
         fonts: [
           {
             name: "Inter",
             data: await inter,
-            weight: 500,
+            weight: 400,
           },
         ],
       },
