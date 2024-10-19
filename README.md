@@ -5,7 +5,7 @@
         <img src="https://github.com/user-attachments/assets/e9754454-5f51-4166-8194-0f3ba1db82dc" alt="Sponsor" height="30">
     </picture>
 </a>
-<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fraphaelsalaja%2Fsylph&env=NEXT_PUBLIC_SITE_URL&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Ftwitter.com%2Fraphaelsalaja&demo-title=next-slyph-portfolio&demo-description=A%20minimal%20blog%20built%20with%20Next.js.&demo-url=https%3A%2F%2Fnext-sylph-portfolio.vercel.app">
+<a href="https://vercel.com/new/clone?repository-url=https://github.com/raphaelsalaja/sylph&env=NEXT_PUBLIC_SITE_URL&project-name=portfolio&repository-name=portfolio&redirect-url=https://twitter.com/raphaelsalaja&demo-title=next-slyph-portfolio&demo-description=A+minimal+blog+built+with+Next.js.&demo-url=https://next-sylph-portfolio.vercel.app&demo-image=https://raw.githubusercontent.com/raphaelsalaja/sylph/refs/heads/main/.github/assets/readme.png&teamSlug=raphael-salaja">
     <picture>
         <img src="https://github.com/user-attachments/assets/7ea626bf-b827-4995-b0d0-6eea0c0ba2d5" alt="Deploy" height="30">
     </picture>
