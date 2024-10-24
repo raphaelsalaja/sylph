@@ -42,7 +42,7 @@ export const DeployButton = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="103" height="32" fill="none">
             <rect width="103" height="32" fill="#1A1A1A" rx="6" />
             <rect width="102" height="31" x=".5" y=".5" stroke="#fff" strokeOpacity=".14" rx="5.5" />
-            <g clip-path="url(#a)">
+            <g clipPath="url(#a)">
               <path fill="#EDEDED" fillRule="evenodd" d="m16 10.75 6 10.5H10l6-10.5Z" clipRule="evenodd" />
             </g>
             <path stroke="#fff" strokeOpacity=".14" d="M31.5 1v30" />
