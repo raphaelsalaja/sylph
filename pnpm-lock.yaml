@@ -85,6 +85,9 @@ importers:
       path:
         specifier: ^0.12.7
         version: 0.12.7
+      postcss-nested:
+        specifier: ^6.2.0
+        version: 6.2.0(postcss@8.4.47)
       react:
         specifier: ^18.3.1
         version: 18.3.1

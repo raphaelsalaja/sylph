@@ -17,8 +17,6 @@
 </a>
 </p>
 
-
-
 A minimal and lightweight portfolio template designed for developers, designers, and creatives. It offers a clean, modern interface to showcase your work, share your ideas, and write blog posts.
 
 Built using Next.js, Sylph is optimized for performance and developer experience, providing flexibility and ease of use whether you're showcasing projects or writing content.
