@@ -2,118 +2,143 @@
 
 import { cn } from "@/lib/cn";
 
-import { motion } from "framer-motion";
-import React, { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+interface HeadingData {
+  id: string;
+  text: string;
+  level: number;
+}
 
 export const TableOfContents = () => {
-  const [headings, setHeadings] = useState<{ id: string; text: string; level: string }[]>([]);
-  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(new Set());
-
-  const getHeadings = useCallback(() => {
-    return Array.from(document.querySelectorAll("h1, h2, h3"))
-      .filter((heading) => heading.id)
-      .map((heading) => ({
-        id: heading.id,
-        text: heading.textContent || "",
-        level: heading.tagName.toLowerCase(),
-        top: (heading as HTMLElement).offsetTop,
-      }));
-  }, []);
+  const [activeId, setActiveId] = useState<string>("");
+  const [headings, setHeadings] = useState<HeadingData[]>([]);
+  const [pageTitle, setPageTitle] = useState<string>("");
+  const [showTOC, setShowTOC] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const collectedHeadings = getHeadings();
-    setHeadings(collectedHeadings);
+    const handleScroll = () => {
+      const firstH1 = document.querySelector("h1");
+      if (!firstH1) return;
 
-    const observerOptions = {
-      root: null,
-      threshold: 0,
+      const rect = firstH1.getBoundingClientRect();
+      setShowTOC(rect.bottom < 0 || isHovering);
     };
+    window.addEventListener("scroll", handleScroll);
 
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      const visibleSet = new Set(visibleHeadings);
+    const elements = Array.from(document.querySelectorAll("h1, h2, h3"));
+    const firstH1 = elements[0];
+    setPageTitle(firstH1?.textContent ?? "");
+    const headingData = elements.slice(1).map((heading) => ({
+      id: heading.id,
+      text: heading.textContent ?? "",
+      level: Number.parseInt(heading.tagName[1]),
+    }));
+    setHeadings(headingData);
 
-      for (const entry of entries) {
-        const headingId = entry.target.id;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const intersectingEntries = entries.filter((entry) => entry.isIntersecting);
 
-        if (entry.isIntersecting) {
-          visibleSet.add(headingId);
-        } else {
-          visibleSet.delete(headingId);
+        if (intersectingEntries.length > 0) {
+          const viewportHeight = window.innerHeight;
+          const targetPosition = viewportHeight / 3;
+
+          const closest = intersectingEntries.reduce((prev, current) => {
+            const rect = current.target.getBoundingClientRect();
+            const distance = Math.abs(rect.top - targetPosition);
+
+            const prevRect = prev.target.getBoundingClientRect();
+            const prevDistance = Math.abs(prevRect.top - targetPosition);
+
+            return distance < prevDistance ? current : prev;
+          });
+
+          setActiveId(closest.target.id);
         }
-      }
+      },
+      {
+        rootMargin: "-100px 0px -70% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1.0],
+      },
+    );
 
-      setVisibleHeadings(new Set(visibleSet));
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    for (const heading of collectedHeadings) {
-      const element = document.getElementById(heading.id);
-      if (element) observer.observe(element);
+    for (const elem of elements) {
+      observer.observe(elem);
     }
-
     return () => {
       observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [getHeadings, visibleHeadings]);
+  }, [isHovering]);
 
-  const scroll = (id: string) => {
-    for (const heading of Array.from(document.querySelectorAll("h1, h2, h3"))) {
-      heading.setAttribute("data-highlight", "false");
-    }
-
+  const handleClick = (id: string) => {
     const element = document.getElementById(id);
-
     if (element) {
-      const top = element.offsetTop - 100;
+      const offset = 20;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
-        top: top,
+        top: elementPosition - offset,
         behavior: "smooth",
       });
-
       element.setAttribute("data-highlight", "true");
-
-      setTimeout(() => {
-        element.setAttribute("data-highlight", "false");
-      }, 2000);
+      setTimeout(() => element.removeAttribute("data-highlight"), 2000);
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  if (headings.length === 0) return null;
+
   return (
-    <React.Fragment>
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        className={cn(
-          "top-[10rem] right-auto left-[2rem] hidden",
-          "xl:top-[6rem] xl:right-[6rem] xl:left-auto xl:block",
-          "fixed mt-0 h-full w-48 justify-start space-y-4 transition",
-        )}
-      >
-        <div className="mt-0 flex flex-col gap-0">
-          {headings.map((heading) => (
-            <div key={heading.id} className="mt-0">
-              <button
-                type="button"
-                onClick={() => scroll(heading.id)}
-                className={cn({
-                  "mt-0 ml-2 border-l border-l-gray-4 py-1 text-left text-muted opacity-100 transition ease-in-out hover:opacity-50": true,
-                  "text-bold text-gray-12": visibleHeadings.has(heading.id),
-                  "pl-4": heading.level === "h1",
-                  "pl-6": heading.level === "h2",
-                  "pl-7": heading.level === "h3",
-                  "border-l border-l-gray-12": visibleHeadings.has(heading.id),
-                })}
-                data-active={visibleHeadings.has(heading.id) ? "true" : "false"}
-              >
-                {heading.text}
-              </button>
-            </div>
-          ))}
-        </div>
-      </motion.nav>
-    </React.Fragment>
+    <nav
+      className={cn(
+        "fixed top-40 left-8 hidden max-h-[calc(100vh-10rem)] w-48 overflow-y-auto lg:block",
+        "transition-opacity duration-200",
+        showTOC || isHovering ? "opacity-100" : "opacity-0",
+      )}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className="space-y-1 text-sm">
+        <div className="mb-2 font-medium text-gray-12">{pageTitle}</div>
+        {headings.map((heading) => (
+          <button
+            type="button"
+            key={heading.id}
+            onClick={() => handleClick(heading.id)}
+            className={cn(
+              "block w-full text-left transition-colors hover:text-gray-12",
+              "py-1 text-gray-11",
+              heading.level === 1 && "pl-0",
+              heading.level === 2 && "pl-3",
+              heading.level === 3 && "pl-6",
+              activeId === heading.id &&
+                cn(
+                  "border-gray-12 border-l-2 font-medium text-gray-12",
+                  heading.level === 1 && "pl-2",
+                  heading.level === 2 && "pl-5",
+                  heading.level === 3 && "pl-8",
+                ),
+            )}
+          >
+            {heading.text}
+          </button>
+        ))}
+      </div>
+
+      {showTOC && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="mt-4 text-gray-9 text-sm transition-colors hover:text-gray-12"
+        >
+          ↑ Back to top
+        </button>
+      )}
+    </nav>
   );
 };
